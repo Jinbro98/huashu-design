@@ -1,199 +1,199 @@
-# 设计评审深度指南
+#In-Depth Guide to Design Review
 
-> Phase 7 的详细参考。提供评分标准、场景侧重点、常见问题清单。
-
----
-
-## 评分标准详解
-
-### 1. 哲学一致性（Philosophy Alignment）
-
-| 分数 | 标准 |
-|------|------|
-| 9-10 | 设计完美体现了选定哲学的核心精神，每个细节都有哲学依据 |
-| 7-8 | 整体方向正确，核心特征到位，个别细节偏离 |
-| 5-6 | 能看出意图，但执行时混入了其他风格元素，不够纯粹 |
-| 3-4 | 仅在表面模仿，未理解哲学内核 |
-| 1-2 | 与选定哲学基本无关 |
-
-**评审要点**：
-- 是否使用了该设计师/机构的标志性手法？
-- 色彩、字体、布局是否符合该哲学体系？
-- 有没有「自相矛盾」的元素？（如选了Kenya Hara却塞满内容）
-
-### 2. 视觉层级（Visual Hierarchy）
-
-| 分数 | 标准 |
-|------|------|
-| 9-10 | 用户视线自然沿设计者意图流动，信息获取零摩擦 |
-| 7-8 | 主次关系清晰，偶有1-2处层级模糊 |
-| 5-6 | 能分出标题和正文，但中间层级混乱 |
-| 3-4 | 信息平铺，没有明确的视觉入口 |
-| 1-2 | 混乱，用户不知道先看哪里 |
-
-**评审要点**：
-- 标题与正文的字号对比是否足够？（至少2.5倍）
-- 颜色/粗细/大小是否建立了3-4个清晰层级？
-- 留白是否在引导视线？
-- 「眯眼测试」：眯起眼看，层级是否仍然清晰？
-
-### 3. 细节执行（Craft Quality）
-
-| 分数 | 标准 |
-|------|------|
-| 9-10 | 像素级精确，对齐、间距、颜色无任何瑕疵 |
-| 7-8 | 整体精致，有1-2处微小对齐/间距问题 |
-| 5-6 | 基本对齐，但间距不统一，颜色使用不够系统 |
-| 3-4 | 明显的对齐错误、间距混乱、颜色过多 |
-| 1-2 | 粗糙，看起来像草稿 |
-
-**评审要点**：
-- 是否使用了统一的间距系统（如8pt网格）？
-- 同类元素的间距是否一致？
-- 颜色数量是否受控？（通常不超过3-4种）
-- 字体家族是否统一？（通常不超过2种）
-- 边缘对齐是否精确？
-
-### 4. 功能性（Functionality）
-
-| 分数 | 标准 |
-|------|------|
-| 9-10 | 每个设计元素都服务于目标，零冗余 |
-| 7-8 | 功能导向明确，有少量可删减的装饰 |
-| 5-6 | 基本可用，但有明显的装饰性元素分散注意力 |
-| 3-4 | 形式大于功能，用户需要努力寻找信息 |
-| 1-2 | 完全被装饰淹没，失去了传达信息的能力 |
-
-**评审要点**：
-- 删掉任何一个元素，设计会变差吗？（如果不会，就应该删）
-- CTA/关键信息是否在最显眼的位置？
-- 是否有「因为好看所以加上去」的元素？
-- 信息密度与载体是否匹配？（PPT不宜太密，PDF可以更密）
-
-### 5. 创新性（Originality）
-
-| 分数 | 标准 |
-|------|------|
-| 9-10 | 令人耳目一新，在该哲学框架内找到了独特表达 |
-| 7-8 | 有自己的想法，不是简单的模板套用 |
-| 5-6 | 中规中矩，看起来像模板 |
-| 3-4 | 大量使用了cliché（如渐变圆球代表AI） |
-| 1-2 | 完全是模板或素材拼凑 |
-
-**评审要点**：
-- 是否避免了常见cliché？（见下方「常见问题清单」）
-- 在遵循设计哲学的同时是否有个人表达？
-- 是否有「意想不到但很合理」的设计决策？
+> Detailed reference for Phase 7. Provides scoring criteria, scene focus, and a list of frequently asked questions.
 
 ---
 
-## 场景评审侧重
+## Detailed explanation of scoring criteria
 
-不同输出类型的评审重点不同：
+### 1. Philosophy Alignment
 
-| 场景 | 最重要维度 | 次重要 | 可放宽 |
+| Score | Standard |
+|------|------|
+| 9-10 | The design perfectly embodies the core spirit of the selected philosophy, and every detail has a philosophical basis |
+| 7-8 | The overall direction is correct, the core features are in place, and individual details deviate |
+| 5-6 | The intention can be seen, but other style elements are mixed into the execution, which is not pure enough |
+| 3-4 | Only superficial imitation without understanding the philosophical core |
+| 1-2 | Basically irrelevant to the chosen philosophy |
+
+**Review Points**:
+- Is the designer/agency’s signature approach used?
+- Do the colors, fonts, and layout fit the philosophy?
+- Are there any "contradictory" elements? (If you choose Kenya Hara but it is full of content)
+
+### 2. Visual Hierarchy
+
+| Score | Standard |
+|------|------|
+| 9-10 | The user's line of sight naturally flows along the designer's intention, and information is obtained with zero friction |
+| 7-8 | The primary and secondary relationships are clear, with occasional 1-2 hierarchical ambiguities |
+| 5-6 | Can separate title and text, but the middle level is confusing |
+| 3-4 | Information is flat and there is no clear visual entrance |
+| 1-2 | Confusion, users don’t know where to look first |
+
+**Review Points**:
+- Is the font size contrast between the title and the text sufficient? (at least 2.5 times)
+- Are 3-4 levels of clarity established for color/thickness/size?
+- Is the white space guiding the eye?
+- "Squint Test": Squint your eyes, are the layers still clear?
+
+### 3. Detailed execution (Craft Quality)
+
+| Score | Standard |
+|------|------|
+| 9-10 | Pixel-level accuracy, no defects in alignment, spacing, and color |
+| 7-8 | Overall exquisite, with 1-2 minor alignment/spacing issues |
+| 5-6 | Basically aligned, but the spacing is not uniform and the use of colors is not systematic enough |
+| 3-4 | Obvious alignment errors, confusing spacing, and too many colors |
+| 1-2 | Rough, looks like a draft |
+
+**Review Points**:
+- Is a uniform spacing system used (such as an 8pt grid)?
+- Is the spacing between similar elements consistent?
+- Is the color quantity controlled? (usually no more than 3-4 types)
+- Is the font family unified? (usually no more than 2 types)
+- Is edge alignment precise?
+
+### 4. Functionality
+
+| Score | Standard |
+|------|------|
+| 9-10 | Every design element serves a purpose, with zero redundancy |
+| 7-8 | Clear functional orientation, with a small amount of decoration that can be deleted |
+| 5-6 | Basically usable, but with obvious decorative elements that distract |
+| 3-4 | Form outweighs function, users need to work hard to find information |
+| 1-2 | Completely overwhelmed by decoration and lost the ability to convey information |
+
+**Review Points**:
+- Will the design become worse if any element is deleted? (If not, it should be deleted)
+- Is the CTA/key information in the most visible position?
+- Is there an element of "I added it because it looks good"?
+- Does the information density match the carrier? (PPT should not be too dense, PDF can be denser)
+
+### 5. Originality
+
+| Score | Standard |
+|------|------|
+| 9-10 | Refreshingly, finding unique expression within this philosophical framework |
+| 7-8 | Have your own ideas, not just apply a template |
+| 5-6 | Average, looks like a template |
+| 3-4 | Extensive use of cliché (such as the gradient ball representing AI) |
+| 1-2 | Completely a template or a patchwork of materials |
+
+**Review Points**:
+- Are common clichés avoided? (See "List of Frequently Asked Questions" below)
+- Is there a personal expression while following a design philosophy?
+- Are there any "unexpected but reasonable" design decisions?
+
+---
+
+## Focus on scene review
+
+The review focus for different output types is different:
+
+| Scenario | Most important dimension | Second most important | Can be relaxed |
 |------|-----------|--------|--------|
-| 公众号封面/配图 | 创新性、视觉层级 | 哲学一致性 | 功能性（单图不涉及交互） |
-| 信息图 | 功能性、视觉层级 | 细节执行 | 创新性（准确优先） |
-| PPT/Keynote | 视觉层级、功能性 | 细节执行 | 创新性（清晰优先） |
-| PDF/白皮书 | 细节执行、功能性 | 视觉层级 | 创新性（专业优先） |
-| 落地页/官网 | 功能性、视觉层级 | 创新性 | —（全面要求） |
-| App UI | 功能性、细节执行 | 视觉层级 | 哲学一致性（可用性优先） |
-| 小红书配图 | 创新性、视觉层级 | 哲学一致性 | 细节执行（氛围优先） |
+| WeChat Official Account cover/image | Innovation, visual hierarchy | Philosophical consistency | Functionality (single image does not involve interaction) |
+| Infographic | Functionality, visual hierarchy | Detailed execution | Innovation (accuracy first) |
+| PPT/Keynote | Visual hierarchy, functionality | Detailed execution | Innovation (clear priority) |
+| PDF/White Paper | Detailed execution, functionality | Visual hierarchy | Innovation (professionals preferred) |
+| landing page/official website | functionality, visual hierarchy | innovation | — (comprehensive requirements) |
+| App UI | Functionality, detailed execution | Visual hierarchy | Philosophical consistency (usability first) |
+| Illustrations by Xiaohongshu | Innovation, visual hierarchy | Philosophical consistency | Detailed execution (atmosphere first) |
 
 ---
 
-## 常见设计问题 Top 10
+## Top 10 common design issues
 
-### 1. AI科技cliché
-**问题**：渐变圆球、数字雨、蓝色电路板、机器人脸
-**为什么是问题**：用户已经对这些视觉疲劳，无法区分你和其他人
-**修复**：用抽象隐喻替代直白符号（如用「对话」的隐喻而非聊天气泡图标）
+### 1. AI technology cliché
+**Question**: Gradient sphere, digital rain, blue circuit board, robot face
+**Why it’s a problem**: Users are already tired of these visuals and can’t distinguish you from everyone else
+**Fix**: Use abstract metaphors instead of literal symbols (e.g. use "conversation" metaphors instead of chat bubble icons)
 
-### 2. 字号层级不足
-**问题**：标题和正文差距太小（<2.5倍）
-**为什么是问题**：用户无法快速定位关键信息
-**修复**：标题至少为正文的3倍（如正文16px → 标题48-64px）
+### 2. Insufficient font size level
+**Problem**: The gap between the title and the text is too small (<2.5 times)
+**Why it’s a problem**: Users can’t quickly locate key information
+**Fix**: The title should be at least 3 times the size of the text (e.g. text 16px → title 48-64px)
 
-### 3. 颜色过多
-**问题**：使用5种以上颜色，没有主次
-**为什么是问题**：视觉混乱，品牌感弱
-**修复**：限制为1个主色+1个辅色+1个强调色+灰阶
+### 3. Too many colors
+**Problem**: Use more than 5 colors, no priority
+**Why is it a problem**: Visual confusion, weak branding
+**Fix**: Limit to 1 primary color + 1 secondary color + 1 accent color + grayscale
 
-### 4. 间距不统一
-**问题**：元素间距随意，没有系统
-**为什么是问题**：看起来不专业，视觉节奏混乱
-**修复**：建立8pt网格系统（间距只用8/16/24/32/48/64px）
+### 4. The spacing is not uniform
+**Problem**: Element spacing is random and there is no system
+**Why it’s a problem**: Looks unprofessional, visual rhythm is confusing
+**Fix**: Create 8pt grid system (only use 8/16/24/32/48/64px for spacing)
 
-### 5. 留白不足
-**问题**：所有空间都被内容填满
-**为什么是问题**：信息拥挤导致阅读疲劳，反而降低信息传达效率
-**修复**：留白至少占总面积40%（极简风格60%+）
+### 5. Insufficient white space
+**Problem**: All space is filled with content
+**Why is it a problem**: Information congestion leads to reading fatigue and reduces the efficiency of information transmission.
+**Fix**: Leave blank space at least 40% of the total area (minimalist style 60%+)
 
-### 6. 字体过多
-**问题**：使用3种以上字体
-**为什么是问题**：视觉噪音，削弱统一感
-**修复**：最多2种字体（1种标题+1种正文），用字重和大小创造变化
+### 6. Too many fonts
+**Issue**: Using more than 3 fonts
+**Why it’s a problem**: Visual noise, weakening sense of unity
+**FIX**: Up to 2 fonts (1 title + 1 body text), create variation with weight and size
 
-### 7. 对齐不一致
-**问题**：有的左对齐，有的居中，有的右对齐
-**为什么是问题**：破坏视觉秩序感
-**修复**：选定一种对齐方式（推荐左对齐），全局统一
+### 7. Inconsistent alignment
+**Question**: Some are left aligned, some are centered, and some are right aligned
+**Why is it a problem**: Destroys the sense of visual order
+**Fix**: Select an alignment method (recommended left alignment), unified globally
 
-### 8. 装饰大于内容
-**问题**：背景图案/渐变/阴影抢了主要内容的风头
-**为什么是问题**：本末倒置，用户来看信息不是看装饰
-**修复**：「如果删掉这个装饰，设计会变差吗？」如果不会，就删
+### 8. Decoration is greater than content
+**Issue**: Background patterns/gradients/shadows steal the spotlight from the main content
+**Why is it a problem**: Putting the cart before the horse, users come to see the information rather than the decoration.
+**Fix**: "If I delete this decoration, will the design become worse?" If not, delete it
 
-### 9. 赛博霓虹滥用
-**问题**：深蓝底(#0D1117) + 霓虹色发光效果
-**为什么是问题**：默认审美禁区（本 skill 的品位基线），且已成为最大 cliché 之一——用户可按自己品牌 override
-**修复**：选择更有辨识度的配色方案（参考20种风格的色彩系统）
+### 9. Cyberneon abuse
+**Question**: Dark blue background (#0D1117) + neon glow effect
+**Why is it a problem**: The default aesthetic is forbidden (the taste baseline of this skill), and has become one of the biggest clichés - users can override according to their own brand
+**Fix**: Choose a more recognizable color scheme (refer to the 20-style color system)
 
-### 10. 信息密度与载体不匹配
-**问题**：PPT里放了一整页文字 / 封面图里塞了10个元素
-**为什么是问题**：不同载体的最佳信息密度不同
-**修复**：
-- PPT：每页1个核心观点
-- 封面图：1个视觉焦点
-- 信息图：分层展示
-- PDF：可以更密，但需要清晰的导航
+### 10. Information density does not match the carrier
+**Problem**: There is a whole page of text in the PPT / 10 elements in the cover image
+**Why is it a problem**: Different carriers have different optimal information densities
+**repair**:
+- PPT: 1 core idea per page
+- Cover image: 1 visual focus
+- Infographic: layered display
+- PDF: can be denser, but requires clear navigation
 
 ---
 
-## 评审输出模板
+## Review output template
 
 ```
-## 设计评审报告
+## Design review report
 
-**总体评分**：X.X/10 [优秀(8+)/良好(6-7.9)/需改进(4-5.9)/不合格(<4)]
+**Overall Rating**:
 
-**分项评分**：
-- 哲学一致性：X/10 [一句话说明]
-- 视觉层级：X/10 [一句话说明]
-- 细节执行：X/10 [一句话说明]
-- 功能性：X/10 [一句话说明]
-- 创新性：X/10 [一句话说明]
+**Scores**:
+- Philosophical consistency: X/10 [One sentence description]
+- Visual level: X/10 [one sentence description]
+- Detailed execution: X/10 [one sentence description]
+- Functionality: X/10 [One sentence description]
+- Innovation: X/10 [one sentence description]
 
-### 优点（Keep）
-- [具体指出做得好的地方，用设计语言描述]
+### Advantages (Keep)
+- [Specify what you did well and describe it in design language]
 
-### 问题（Fix）
-[按严重程度排序]
+### Problem (Fix)
+[Sort by severity]
 
-**1. [问题名称]** — ⚠️致命 / ⚡重要 / 💡优化
-- 当前：[描述现状]
-- 问题：[为什么这是问题]
-- 修复：[具体操作，含数值]
+**1. [Question Name]** — ⚠️Fatal / ⚡Important / 💡Optimization
+- Current: [Describe current situation]
+- Question: [Why is this a problem]
+- Fix: [Specific operations, including numerical values]
 
-### 快速修复清单（Quick Wins）
-如果只有5分钟，优先做这3件事：
-- [ ] [最有影响力的修复]
-- [ ] [第二重要的修复]
-- [ ] [第三重要的修复]
+### Quick Wins
+If you only have 5 minutes, do these 3 things first:
+- [ ] [Most impactful fix]
+- [ ] [Second most important fix]
+- [ ] [Third most important fix]
 ```
 
 ---
 
-**版本**：v1.0
-**更新日期**：2026-02-13
+**Version**: v1.0
+**Updated date**: 2026-02-13

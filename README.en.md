@@ -1,11 +1,11 @@
-<sub>🌐 <a href="README.md">中文</a> · <b>English</b></sub>
+<sub>🌐 <a href="README.md">English</a> · <b>English mirror</b></sub>
 
 <div align="center">
 
 # Huashu Design
 
 > *"Type. Hit enter. A finished design lands in your lap."*
-> *「打字。回车。一份能交付的设计。」*
+> *"Type. Enter. A deliverable design."*
 
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Agent-Agnostic](https://img.shields.io/badge/Agent-Agnostic-blueviolet)](https://skills.sh)
@@ -31,9 +31,7 @@ npx skills add alchaincyf/huashu-design
 
 [See it work](#demo-gallery) · [Install](#install) · [What it does](#what-it-does) · [How it works](#core-mechanics) · [vs. Claude Design](#vs-claude-design)
 
-> 📖 **Note for English readers**: this skill is built by a Chinese-speaking developer. The skill's agent prompts (`SKILL.md`, `references/*.md`) are in Chinese but the agent is bilingual — works fine with English tasks. The demos below are the English parallel versions; the Chinese ones are in the default [Chinese README](README.md).
->
-> 📖 **致中文读者**：这个 skill 由花叔（@AlchainHust）开发。一句话能让 agent 在 3–30 分钟内交付**产品发布动画 / 可点击 App 原型 / 可编辑 PPT / 印刷级信息图**。完整中文介绍见 [README.md](README.md)（默认中文）。
+> 📖 **Language note**: the repository prompts, references, demos, and examples have been translated to English. `README.en.md` is kept as a compatibility mirror for older links.
 
 </div>
 
@@ -94,7 +92,7 @@ No buttons, no panels, no Figma plugin. Agent-agnostic — drops into Claude Cod
 
 ## Demo Gallery
 
-> English parallel versions of the demos. Chinese versions live at the default filenames (see the Chinese README).
+> English demos and references are now the default throughout the repository.
 
 ### Design Direction Advisor
 
@@ -239,9 +237,9 @@ This is an 80-point skill, not a 100-point product. For people unwilling to open
 
 ```
 huashu-design/
-├── SKILL.md                 # Main doc (read by agent, Chinese)
-├── README.md                # Chinese README (default)
-├── README.en.md             # English README (this file)
+├── SKILL.md                 # Main doc read by the agent
+├── README.md                # English README (default)
+├── README.en.md             # English compatibility mirror
 ├── assets/                  # Starter Components
 │   ├── animations.jsx       # Stage + Sprite + Easing + interpolate
 │   ├── ios_frame.jsx        # iPhone 15 Pro bezel
@@ -253,7 +251,7 @@ huashu-design/
 │   ├── design_canvas.jsx    # Side-by-side variation display
 │   ├── showcases/           # 24 prebuilt samples (8 scenes × 3 styles)
 │   └── bgm-*.mp3            # 6 scene-specific background tracks
-├── references/              # Drill-down docs by task (Chinese)
+├── references/              # Drill-down docs by task
 │   ├── animation-pitfalls.md
 │   ├── design-styles.md     # 20 design philosophies in detail
 │   ├── slide-decks.md
@@ -299,10 +297,10 @@ Huasheng is an AI-native coder, independent developer, and AI content creator. N
 | Platform | Handle | Link |
 |---|---|---|
 | X / Twitter | @AlchainHust | https://x.com/AlchainHust |
-| WeChat Official Account | 花叔 | Search "花叔" in WeChat |
-| Bilibili | 花叔 | https://space.bilibili.com/14097567 |
-| YouTube | 花叔 | https://www.youtube.com/@Alchain |
-| Xiaohongshu | 花叔 | https://www.xiaohongshu.com/user/profile/5abc6f17e8ac2b109179dfdf |
+| WeChat Official Account | Huashu | Search "Huashu" in WeChat |
+| Bilibili | Huashu | https://space.bilibili.com/14097567 |
+| YouTube | Huashu | https://www.youtube.com/@Alchain |
+| Xiaohongshu | Huashu | https://www.xiaohongshu.com/user/profile/5abc6f17e8ac2b109179dfdf |
 | Official Site | huasheng.ai | https://www.huasheng.ai/ |
 | Developer Hub | bookai.top | https://bookai.top |
 

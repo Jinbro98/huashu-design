@@ -1,370 +1,370 @@
-# 设计风格库：网页 20 种 + PPT 20 种（HTML 原生优先）
+# Design style library: 20 types of web pages + 20 types of PPT (HTML native priority)
 
-> **2026-06 重构**。基于对全球 10 大网站类型 + 10 大演示类型、各 top5 公认最佳设计（共 100 个真实案例）的调研反推。
-> 旧版 20 种「平面/装置设计师哲学」库的致命问题：大胆风格几乎全是 AI-生成-only（粒子/光影/手绘），**用户默认无生图能力、default 全走 HTML 时，大胆半场直接清零，只剩极简——这是「default 千篇一律」的根因**。本库每一种都标了「纯 HTML/CSS 无生图」下的**还原度**。
+> **2026-06 Refactor**. Based on a survey of the world's top 10 website types + 10 presentation types, and the top 5 recognized best designs (a total of 100 real cases).
+> The fatal problem of the old version of the 20 "Graphic/Installation Designer Philosophy" library: The bold styles are almost all AI-generated-only (particles/light and shadow/hand-painted). **When the user defaults to no drawing ability and defaults to all HTML, the bold half is directly cleared, leaving only minimalism - this is the root cause of "default sameness"**. Each type in this library is marked with the **reduction degree** under "pure HTML/CSS raw images".
 >
-> ⚖️ **但记住定位**：这是**「没思路时翻的弹药」，不是「必须从这里选」的清单**。用户给了内容/品牌/参考，设计就从那里展开，别套库。skill 的职责是帮用户规避最差，不是规定好设计长什么样——好设计从用户的真实需求里长出来。
+> ⚖️ **But remember the positioning**: This is **"ammunition to turn over when you have no ideas", not a list** that "must be chosen from here". The user gives the content/brand/reference, and the design unfolds from there, no matter what the library is. The job of skill is to help users avoid the worst, not to dictate what good design should look like - good design grows out of users' real needs.
 
-## 这个库怎么用
+## How to use this library
 
-1. **先按输出类型选半区**：做网页/落地页/官网 → 网页 20 种；做 PPT/deck/演示 → PPT 20 种。
-2. **温度体系**：每种标了 `大胆 / 中性 / 安静`。**故意让大胆款占多数**——模型的确定性偏差天然偏安静极简，库的配比要把它往大胆推。
-   - 方向 A（稳妥底盘）从安静/中性里按需求选；方向 B 取不同温度拉反差；**方向 C 由 SKILL 的「秒数轮盘」强制注入大胆款**。
-   - ❌ 三个方向不要都落在「米白+留白+一个点缀色」——那是最常见的失败模式。
-3. **还原度**：≥90% 闭眼做；70-90% 主体可做、个别细节降级；<70%（如 Memphis 做旧纹理）必须在产出里**明确标注哪部分用纯色块降级**，不假装能做出原版质感。
-4. **字体**：每种给了开源替代（Inter/Geist/Manrope/Space Grotesk/Fraunces/Playfair 等），不要写付费字体（Söhne/Circular 等）。
-5. 配套：SKILL「设计方向顾问」Phase 3-5 用本库推 3 方向；`assets/showcases/` 有预制截图画廊。
-
----
-
-## 网页风格库(20种)
-
-#### 大胆派
-
-**媒体级粗野主义 Editorial Brutalism（巨号Helvetica压小正文）** `大胆·还原98%`
-- 参考:Bloomberg Businessweek（Richard Turley 2010-2014 改版，Code and Theory操刀）；Neue Haas Grotesk谱系
-- 适配:媒体/内容出版、AI产品发布、品牌官网hero、调研报告封面、观点型长文头图
-- 视觉DNA:配色纯黑#000+纯白#FFF+超链接蓝#0000EE，点缀信号橙红#FF433D/终端绿#00A33E。字体Helvetica/Neue Haas Grotesk，120px+巨号headline左对齐紧字距直接压住14px小正文，极端字号反差。布局模块化网格+1px规则线分栏切割，高信息密度刻意不留白。标志元素：rule line分栏、超链接蓝下划线、黑白底大色块。
-- HTML实现:纯CSS可1:1还原。CSS Grid做模块网格+border做规则线分栏，clamp()做超大响应式字号+letter-spacing收紧，系统Helvetica/Arial栈或Inter兜底，超链接直接#0000EE下划线。零素材依赖。
-- 字体:Inter（替Helvetica/Neue Haas Grotesk），代码用Geist Mono
-
-**新粗野主义撞色信息流 Neo-Brutalism（粗黑描边卡片+高饱和撞色）** `大胆·还原95%`
-- 参考:The Verge 2022 redesign（in-house team，PolySans + Mānuka）
-- 适配:媒体/内容站、AI产品聚合页、活动landing、社区榜单页、小红书风信息卡
-- 视觉DNA:配色电光紫#5200FF~品红#E1306C高饱和主色+亮黄#F8E000强调+纯黑#08080D+白，大面积撞色块刻意不柔和。字体几何无衬线大标题+衬线正文反差。布局卡片化feed流、2-4px粗黑描边、硬色块分区、近乎无圆角。标志元素：粗描边卡片hover撞色翻转、未完成界面气质。
-- HTML实现:纯CSS强项。border:3px solid #000粗描边+box-shadow硬投影偏移(4px 4px 0 #000)+grid/flex卡片流+:hover切换background撞色翻转。无3D/光影障碍。
-- 字体:Space Grotesk（替PolySans）+ 任一衬线如Fraunces
-
-**孟菲斯复古拼贴最大化 Memphis Maximalism（撞色块+错位叠放+复古字体）** `大胆·还原72%`
-- 参考:Gucci Vault概念店（Alessandro Michele）；Memphis设计运动 / Sagmeister叛逆基因
-- 适配:电商概念店、创意活动页、品牌实验campaign、Y2K复古主题、节日营销页
-- 视觉DNA:配色复古红/芥末黄/宝蓝/紫/橄榄绿大面积撞色并置+做旧米色暖底，浓烈刻意不和谐。字体复古衬线+装饰字混用、印刷质感、打破网格错位叠放。布局反网格拼贴策展、模块大小不一错落叠压、像逛数字房间。标志元素：撞色块、错位叠放、非常规导航彩蛋。
-- HTML实现:transform:rotate()做错位叠放+position:absolute叠压+高饱和background撞色块+复古Google Fonts。真实做旧纹理无法CSS还原，降级为纯色块+mix-blend-mode/contrast滤镜模拟肌理，几何拼贴版成立、archival做旧版会降级。
-- 字体:DM Serif Display + Bungee（装饰）+ Space Mono
-
-**糖果色凸起立体按钮游戏化 Friendly Geometric Candy** `大胆·还原85%`
-- 参考:Duolingo（Johnson Banks + Monotype，Feather Bold字体）；反硅谷极简
-- 适配:教育语言学习、消费级App landing、游戏化产品、面向大众亲和产品、活动报名页
-- 视觉DNA:配色Duo绿#58CC02+鸭子黄#FFC800+天蓝#1CB0F6糖果高饱和+白底，圆润友好。字体超粗圆体（Feather Bold感）。布局大圆角卡片、凸起3D按钮（底部硬阴影=可按压感）、吉祥物位+进度气泡。标志元素：3px实底阴影立体按钮、按下位移动画、超圆角。
-- HTML实现:纯CSS。box-shadow:0 4px 0生硬底阴影做凸起按钮+:active translateY(4px)消阴影模拟按压，border-radius大圆角，纯色块。吉祥物无生图时用CSS几何形或emoji占位（轻微降级）。
-- 字体:Baloo 2 / Nunito（超粗圆体替Feather）
-
-**纯CSS几何插画+响应式变形彩蛋 Pure-CSS Art** `大胆·还原80%`
-- 参考:Lynn Fisher（lynnandtonic.com，纯CSS艺术传奇，Adobe专文报道）
-- 适配:个人主页、创意404/彩蛋页、品牌玩味landing、技术博客头图、设计师自我展示
-- 视觉DNA:配色2-4色高对比扁平面（每个breakpoint换调色）。字体粗几何无衬线标题。布局核心是「图随视口变形」——一组CSS形状在不同断点重组成不同画面（如建筑随屏宽变换层数）。标志元素：纯CSS绘制的几何插画、断点驱动的重排彩蛋、零图片。
-- HTML实现:纯CSS的炫技战场，零素材是优势。div+border-radius/clip-path/transform/box-shadow堆叠几何形，@media断点改变形状尺寸位置实现变形。难度在设计构思而非技术，但需要精心手搓每个形状。
-- 字体:Rubik / Archivo（粗几何替自定义）
-
-**巨型字黑白高对比时装大字报 Bold Big-Type Editorial** `大胆·还原88%`
-- 参考:Jacquemus官网 / Rik Oostenbroek / Domestika；时装杂志大字报
-- 适配:电商时尚、作品集、媒体专题、品牌宣言页、视频课程封面、调研报告大字版
-- 视觉DNA:配色极简黑白+单一克制点缀色（裸粉#E8C4C0或正红）。字体超大Display无衬线/高反差衬线，标题占满整屏。布局全幅网格、巨字与负空间博弈、图文1:1分割。标志元素：屏占比巨型headline、奢侈级留白、左右对位排版。
-- HTML实现:纯CSS完美还原。clamp()巨号字+CSS Grid全幅分割+大量padding留白+vh单位让标题占满视口。无图时用纯色块/文字块替代时装大片占位（轻降级但版式成立）。
-- 字体:Archivo Expanded / Anton（Display）+ Playfair Display（高反差衬线）
-
-**复古未来太空图录 Cosmic Retro-Futurism** `大胆·还原75%`
-- 参考:Perplexity Comet浏览器发布站（The Brand Identity：Black/Blue/Cream；《2001太空漫游》气质）
-- 适配:AI产品发布站、科技品牌宣言页、活动倒计时页、未来感landing、概念发布会
-- 视觉DNA:配色纯黑#0A0A0A+奶油纸白cream#F0EAD8+一抹钴蓝-孔雀蓝#2B4F91，低饱和像老式天文图录。字体高反差衬线（古典天文图册感）+留白。布局线描轨道/抛物线SVG、行星圆点、奶油底压黑字、古籍式排印。标志元素：SVG天体轨道线、奶油+蓝+黑三色、复古衬线大字、天文图录质感。
-- HTML实现:纯CSS+SVG还原静态版八成气质。SVG path画轨道抛物线+CSS径向定位行星圆点+三色变量+高反差衬线。缺口是「太空落到地球」的全屏视频转场（灵魂部分）——降级为CSS scroll视差+SVG轨道旋转近似。
-- 字体:Cormorant Garamond / EB Garamond（高反差衬线）+ Space Mono
-
-**电影感声波可视化 Cinematic Sound-Viz Dark** `大胆·还原72%`
-- 参考:ElevenLabs；电影片头title sequence（Saul Bass式极简动态）× 音频工程界面
-- 适配:音频/语音AI产品、音乐科技站、播客平台、媒体发布页、影院级品牌hero
-- 视觉DNA:配色纯黑#000底+纯白文字+蓝紫渐变accent波形。字体大号无衬线标题Saul Bass式极简。布局全幅暗场、声波/频谱可视化贯穿、巨标题压波形、卡片功能区。标志元素：彩色audio-waveform波形带、电影片头式极简、高对比黑白+单渐变、声音可视化母题。
-- HTML实现:纯CSS+SVG还原70%气质（骨架完美，波形是降级点）。SVG polyline画静态波形或多条不等高div柱阵+CSS animation做『假波形』跳动近似。缺口：随声音实时跳动的Web Audio/Canvas频谱不可纯CSS还原，静态版像、动态灵魂还不了。
-- 字体:Inter / Sora（大号无衬线）
-
-**像素游戏横版叙事 Pixel-Game Side-Scroller** `大胆·还原70%`
-- 参考:Robby Leonardi交互简历（8/16-bit平台动作游戏叙事，致敬任天堂SNES）
-- 适配:创意简历/作品集、品牌玩味campaign、游戏化landing、活动彩蛋页、个人趣味主页
-- 视觉DNA:配色复古游戏多段分区——森林绿#4CAF50草地+天蓝#5DADE2，过渡太空紫#2C2A4A、火山橙红#E8743B、海底青#1ABC9C，每『关卡』换一套高饱和卡通调色。字体像素字体（8-bit感）+粗无衬线。布局横版/纵向滚动分关卡场景、视差分层、scroll触发位移。标志元素：分关卡换色、像素美学、视差滚动、游戏HUD式UI。
-- HTML实现:纯CSS+少量JS还原骨架（原作就是HTML+CSS+jQuery无WebGL）。视差分层position+scroll位移、image-rendering:pixelated、CSS逐帧background-position做sprite动画、分段背景色。缺口：原创角色/场景手绘像素插画——无生图时用CSS方块拼简易像素图标替代（美术降级，技术不降）。
-- 字体:Press Start 2P / VT323（像素字）+ Inter
-
-
-#### 中性派
-
-**包豪斯几何标志+扁平插画系统 Bauhaus Geometric** `中性·还原90%`
-- 参考:Khan Academy rebrand（六边形+花瓣logomark + Wonder Blocks设计系统）；Bauhaus几何构成
-- 适配:教育课程站、品牌logo系统、信息图、儿童亲和向产品、活动KV
-- 视觉DNA:配色三原色谱系——包豪斯红#E63946/黄#FFB703/蓝#0077B6+黑白，纯色块拼接。字体几何无衬线（圆润几何感）。布局圆/三角/方基本几何单元搭建插画，对齐栅格、模块化拼图。标志元素：纯几何形态logomark、扁平无渐变插画、原色块构成。
-- HTML实现:纯CSS几何全能。border-radius:50%做圆、clip-path/border三角形、方块div拼几何插画，CSS Grid栅格对齐，纯色fill无需素材。插画用CSS形状或内联SVG几何路径手搓。
-- 字体:Poppins / Manrope（几何圆润替Wonder Blocks）
-
-**暗色双色侧栏开发者作品集 Dark Editorial（深底+单荧光accent+等宽字）** `中性·还原96%`
-- 参考:Brittany Chiang（brittanychiang.com v4，dev portfolio事实标准）
-- 适配:作品集个人主页、开发者向产品、技术品牌站、简历页、AI工具landing
-- 视觉DNA:配色深墨绿/海军底#0A192F+板岩灰文字#8892B0+单一荧光青绿accent#64FFDA。字体无衬线正文+等宽字（编号/标签）。布局左固定侧栏导航+右滚动主区双栏，section编号01/02、链接hover下划线滑入。标志元素：单accent色、等宽编号标签、侧栏锚点高亮。
-- HTML实现:纯CSS完全还原。position:sticky做固定侧栏+CSS Grid双栏+单accent变量+等宽字标签+:hover下划线transform滑入。零素材，纯版式与微交互。
-- 字体:Inter + JetBrains Mono（等宽）
-
-**暖色出版物 Warm Editorial（奶油纸底+赤陶橙+衬线无衬线混排）** `中性·还原97%`
-- 参考:Anthropic / Claude（DBCo + Geist Studio，Styrene×Tiempos）；Penguin/Pelican平装书排印
-- 适配:AI产品站、品牌官网、长文阅读页、橙皮书电子书、调研报告、培训材料
-- 视觉DNA:配色奶油纸底#F5F0E8+赤陶橙#CC785C/#D97757点缀+近黑文字#191919，温暖低饱和。字体衬线标题（Tiempos感）×无衬线正文（Styrene感）混排。布局书籍式单栏阅读流、舒适行高、节制分隔线。标志元素：纸感暖底、赤陶橙、出版级排印节奏。
-- HTML实现:纯CSS 100%还原，零素材。背景色变量+衬线无衬线字体栈混排+max-width限制阅读宽度+line-height 1.7舒适行高。这是Anthropic赤陶橙暖色版的安全主场。
-- 字体:Fraunces / Newsreader（替Tiempos衬线）+ Inter（替Styrene）
-
-**Linear暗色发光+Bento网格 Glassmorphism Bento** `中性·还原85%`
-- 参考:Linear / Cursor（'The Linear Look'现象级流派，Frontend Horse有代码配方）
-- 适配:SaaS/AI产品站、开发者工具、技术品牌hero、产品功能展示、深色dashboard演示
-- 视觉DNA:配色近黑底#08090A+去饱和蓝紫品牌#5E6AD2+低饱和青紫微光渐变#4EA7FC→#B59AFF。字体几何无衬线负字距紧凑。布局便当盒bento网格分块、发丝分割线、玻璃拟态卡片。标志元素：暗底发光渐变边框、bento分块、流光streamer、磨砂玻璃。
-- HTML实现:纯CSS强还原。box-shadow/filter blur+radial-gradient做发光晕，backdrop-filter:blur玻璃拟态，conic/linear-gradient边框，CSS Grid拼bento。缺口仅「真实产品UI截图」——用色块+文字拼简化假UI替代（这部分降级）。
-- 字体:Inter / Geist（负字距）+ Geist Mono
-
-**斜切流体渐变带 Angled Fluid Gradient** `中性·还原92%`
-- 参考:Stripe（标志性angled gradient banner，Klim定制Söhne字体）
-- 适配:SaaS/Fintech落地页、品牌官网hero、产品发布页、活动banner、AI产品营销页
-- 视觉DNA:配色多色流体渐变（靛蓝#635BFF→青→粉→橙暖调）做hero背景+纯白内容区+近黑文字。字体精致无衬线（Söhne感）。布局倾斜分割色块（skew切角分区）、渐变hero压结构化栅格正文。标志元素：angled斜切边界、多色流体渐变、理性栅格压表达渐变。
-- HTML实现:纯CSS。transform:skewY()或clip-path:polygon()做斜切分区，linear-gradient多色叠加（可加CSS animation缓慢流动）做流体渐变带，Grid做下方结构化正文。零素材。
-- 字体:Inter / Hanken Grotesk（替Söhne）
-
-**实用主义彩虹分类文档 Utility-First Colorful Docs** `中性·还原98%`
-- 参考:Tailwind CSS Docs（Sky/Cyan品牌色+功能分类彩虹色相条）
-- 适配:技术文档、API参考、设计系统站、教程站、开发者knowledge base、SaaS帮助中心
-- 视觉DNA:配色Sky蓝#38BDF8品牌+teal→cyan→sky青蓝渐变+Slate灰阶#0F172A/#64748B/#F8FAFC，文档用彩虹色相条区分功能分类（粉#EC4899/紫#A855F7/绿#10B981/橙）。字体清爽无衬线+等宽代码。布局左侧栏导航+中正文+右TOC三栏，彩色高亮代码块、分类色标。标志元素：青蓝渐变hero、彩虹分类色、三栏文档骨架、语法高亮代码块。
-- HTML实现:纯CSS 98%还原（它本身就是CSS框架文档）。Grid三栏+linear-gradient青蓝hero+分类色变量+代码块语法色用span着色。Inter开源，唯暗色切换/copy需轻量JS。零光影/3D/手绘。
-- 字体:Inter + JetBrains Mono / Fira Code（代码）
-
-**终端核软未来 Terminal-Core Soft-Futurism（等宽字+等距立方）** `中性·还原80%`
-- 参考:Cursor (Anysphere)；开发者终端美学 × Teenage Engineering工业极简
-- 适配:AI编程工具站、CLI产品landing、开发者基础设施、技术品牌hero、终端类产品
-- 视觉DNA:配色炭黑#0B0D14底+暖白文字#F2F0EF+克制蓝紫渐变accent点缀按钮与光晕。字体等宽字为主角（命令行感）+无衬线辅助。布局命令行/代码块前景、bento分区、2.5D等距cube示意。标志元素：等宽字命令行、等距投影立方体、暖白×炭黑、克制渐变光晕、工业极简。
-- HTML实现:纯CSS 80%还原。等宽字代码块+暗色bento+box-shadow光晕；2.5D等距cube用CSS 3D transform(rotateX/Y+skew)或SVG等距投影手搓。缺口：可点击切换的多界面demo需JS+假UI拼接。无WebGL刚需。
-- 字体:Geist Mono / JetBrains Mono（主角）+ Inter（辅助）
-
-
-#### 安静派
-
-**功能主义网格社区 Functional Brutalism（灰线分割+系统字+蓝链接）** `安静·还原98%`
-- 参考:Are.na / Lobsters / Quartz；Müller-Brockmann栅格数字落地 + Tufte信息密度
-- 适配:社区/UGC平台、内容聚合站、文档知识库、移动优先内容流、极客向产品
-- 视觉DNA:配色近白底#FBFBFB+黑文字+1px灰分割线#E0E0E0+经典链接蓝#0000EE/已访问紫。字体系统字栈（-apple-system/无装饰）。布局高密度信息列表、细灰线分栏、极小留白、紧凑行距。标志元素：发丝灰分割线、蓝链接、系统字、信息密度优先。
-- HTML实现:纯CSS最易还原，这是Brutalist Web的本色。border-bottom:1px灰线列表+system-ui字栈+紧凑padding+蓝链接。几乎不需要任何素材或JS，纯结构。
-- 字体:system-ui系统字栈 / IBM Plex Sans（兜底）
-
-**深色画廊裱框 Gallery Dark（深黑负空间+单列大图+EXIF小字）** `安静·还原75%`
-- 参考:Glass (glass.photo) / Bottega Veneta；美术馆暗房 + Apple Photos内容至上
-- 适配:摄影作品集、奢侈品电商、视觉内容沉浸展示、个人画廊页、高端产品陈列
-- 视觉DNA:配色纯黑底#0A0A0A+作品图本身提供唯一色彩+极淡灰EXIF小字#666。字体极细无衬线小字。布局单列居中大图、巨幅负空间裱框、图下metadata小字。标志元素：暗房黑底、内容至上UI退隐、EXIF式小字注脚、大图独占视口。
-- HTML实现:纯CSS还原版式骨架。纯黑底+居中max-width单列+巨幅padding裱框留白+小字metadata。缺口是「真实摄影作品」本身——用占位图/纯色块代替则失灵魂，但暗房氛围与版式100%可搭。
-- 字体:Inter（细字重300）/ Cormorant（衬线奢侈感可选）
-
-**Swiss极致黑白 Swiss Monochrome（Vercel式纯黑白+Geist+锐利边角）** `安静·还原98%`
-- 参考:Vercel / Next.js Docs（自研Geist已开源）；Massimo Vignelli少即是多
-- 适配:开发者工具文档、技术品牌官网、AI产品站、SaaS落地页、极简调研报告
-- 视觉DNA:配色纯黑#000+纯白#FFF+灰阶#888，零彩色或仅一抹蓝链接。字体Geist几何无衬线+Geist Mono。布局锐利直角（无圆角或极小）、高对比、精密栅格、克制留白。标志元素：纯黑白、锐利边角、Geist字体、三角/箭头几何标记。
-- HTML实现:纯CSS 100%还原，Geist开源可直接引。CSS Grid精密栅格+纯黑白变量+border-radius:0锐角+发丝边框。这是HTML最舒适的极简主场，零素材依赖。
-- 字体:Geist + Geist Mono（Vercel开源原版）
-
-**日式留白白盒画廊 Kenya Hara White Gallery** `安静·还原80%`
-- 参考:Cosmos (cosmos.so) / Aesop伊索官网；原研哉『白』的空寂 + 瑞士网格混血
-- 适配:高端电商、创意画廊、内容策展平台、设计师作品集、品牌精品店、moodboard站
-- 视觉DNA:配色近全白#FAFAFA底+纯黑文字#0A0A0A+极淡灰分割#EFEFEF，内容图提供全部色彩、UI退到背景。字体极简系统/几何无衬线小字、大字距。布局masonry瀑布网格、极致留白、淡灰发丝分隔、东方空寂。标志元素：白盒美学、奢侈留白、内容至上UI隐退、瀑布流策展。
-- HTML实现:纯CSS还原静态版式（与暗色画廊区分在『白』）。CSS columns或Grid做masonry+近白变量+大padding留白+淡灰分隔。缺口是Lenis/GSAP丝滑惯性滚动与图片入场缓动（高级感60%在此），CSS仅基础transition，动效层降级。
-- 字体:Inter（细字重）/ Cooper Hewitt（Aesop同款开源）
-
-
-## PPT风格库(20种)
-
-#### 大胆派
-
-**新瑞士大字报 / Neo-Swiss Billboard Editorial** `大胆·还原98%`
-- 参考:Scribe $75M、Flock Safety $47M 等 AI/SaaS 路演 deck 的 Big-Number Editorial 流派；Bloomberg Businessweek 信息图；Pentagram
-- 适配:融资路演、QBR/业务回顾、年度趋势复盘、产品发布关键页
-- 视觉DNA:配色=纯白(#FFFFFF)或近黑(#0A0A0A)底+单一高饱和强调色(电光蓝#2D5BFF/荧光绿#00E676/品牌橙#FF6B2C)+中性网格线#E5E5E5。字体=超大粗体无衬线，标题占半屏，数字tabular-nums等宽收紧字距。母版=①大色块章节页一个词②巨型数字占半屏(3.2x)+小注③左右分栏对比④全幅扁平折线/柱状。标志=billboarding大字、严格基线网格、大色块章节页
-- HTML实现:超大数字用clamp()；严格网格用CSS Grid；大色块章节页background-color；折线柱状用纯div+CSS或内联SVG(比贴图更锐利)；数字对齐font-variant-numeric:tabular-nums。零插画零3D
-- 字体:Inter / Geist / Söhne替代Neue Haas Grotesk；数字配Geist Mono
-
-**黑底巨型数字剧场 / Black Big-Number Stage** `大胆·还原97%`
-- 参考:Steve Jobs 2007 iPhone Keynote、小米SU7 Ultra雷军发布会、Spotify Wrapped、Presentation Zen(Garr Reynolds)
-- 适配:产品发布主题演讲、思想演示、全员town hall、情绪向年度回顾
-- 视觉DNA:配色=纯黑#000000底+纯白#FFFFFF字高反差，一页只一个品牌强调色高亮(小米橙#FF6900/Spotify绿#1ED760/Apple蓝#2997FF)。字体=几何无衬线粗体，一屏一词或一个超大数字占满视野，字距收紧。母版=①标题页黑底居中一行大字②数据高潮页巨型数字+单位+一行注③左右参数对比双栏(强调色vs灰)④slogan单页。大量负空间
-- HTML实现:黑底白字几行CSS；巨型数字clamp()+flex居中；强调色highlight单独span；左右对比CSS Grid两列+条形高亮；tabular-nums。去掉产品照改纯文字反而更接近Zen本质
-- 字体:Geist / Inter / 思源黑替代SF Pro
-
-**高饱和单色品牌撞色海报 / Mono-Brand Type-as-Hero** `大胆·还原96%`
-- 参考:Spotify Wrapped视觉系统、Mailchimp Brand Book(Collins)、Netflix红黑现代复刻、COLLINS品牌系统
-- 适配:品牌/营销策略、campaign宣讲、town hall文化页、活动主视觉
-- 视觉DNA:配色=单一品牌主色满版铺底(Spotify绿#1ED760/Mailchimp黄#FFE01B/Netflix红#E50914)+黑或白反差字，撞色两层。字体=超大字体即主视觉(type-as-hero)顶天立地。母版=①满色块底+反白巨字②双色块上下/左右分割③巨型数字撑满。标志=单色满版、字体当图、高对比撞色
-- HTML实现:满版background-color；超大字clamp()占满；双色用两个100vh色块；字体当图靠font-weight900+负letter-spacing。纯色块零素材，HTML原生最爽
-- 字体:Inter / Manrope / Archivo(超粗)替代Circular/Cavendish
-
-**全幅渐变宣言版式 / Full-Bleed Gradient Manifesto** `大胆·还原82%`
-- 参考:Zuora『Tell a Different Story』销售deck(Andy Raskin拆解)、Nike『Just Do It』campaign、National Geographic跨页
-- 适配:销售提案愿景页、品牌宣言、keynote转折页、使命愿景单页
-- 视觉DNA:配色=满版CSS渐变(暖橙→品红/深蓝→青)或纯色出血+反白宣言大字+hashtag口号(#shifthappens)。字体=厚重无衬线全大写标语横贯。母版=①满幅渐变+居中反白宣言②应许之地愿景页③客户logo墙。标志=full-bleed出血、反白大标语、hashtag口号
-- HTML实现:linear-gradient/radial-gradient满版(不做粒子/光影，纯CSS渐变是允许的)；反白字position居中；logo墙用grid灰度SVG/文字占位。原本靠纪实大照片的部分降级为CSS渐变铺底+大字，照片缺失这一项还原度降约15%
-- 字体:Archivo / Anton / Manrope(超粗)
-
-**CS50单概念糖果舞台 / Candy-Color Lecture Stage** `大胆·还原94%`
-- 参考:Harvard CS50(David Malan)、Lessig Method/高桥流、Presentation Zen
-- 适配:教育课件、技术讲座、概念解释、代码教学
-- 视觉DNA:配色=深黑底#0A0A0A+高饱和糖果色大字轮换(品红#FF2D95/青#00E5FF/明黄#FFD500/绿#39FF14)。字体=无衬线超大字漂浮居中，一屏一概念，文字极少。母版=①深黑底单个糖果色大词②等宽代码块语法高亮③舞台聚光感大字。标志=深黑漂浮糖果色大字、等宽代码高亮、强舞台聚光、极少文字
-- HTML实现:深黑背景+单色超大字clamp()居中；代码块用pre+等宽字+span上色做语法高亮；聚光感用极淡radial-gradient暗角(非粒子光效)。还原度高
-- 字体:Inter超粗 + JetBrains Mono(代码)
-
-**玩味手绘极简 / Playful Maximalist Editorial (Collins式)** `大胆·还原75%`
-- 参考:Mailchimp Brand Book(Collins 2018)、New Yorker漫画气质、Cooper圆润衬线、Cavendish荧光黄
-- 适配:有态度的品牌deck、创意机构提案、文化向town hall、反SaaS极简的营销页
-- 视觉DNA:配色=Cavendish荧光黄#FFE01B大面积+黑+少量撞色，反SaaS极简。字体=Cooper式圆润衬线大标题(playful)+杂志式留白编排。母版=①荧光黄满底+怪诞标题②杂志式不规则留白排版③大字玩梗文案。标志=荧光黄、圆润衬线、playful编排、怪诞手绘气质(降级为几何色块/emoji替代真插画)
-- HTML实现:荧光黄background；圆润衬线font-family；杂志留白用非对称Grid。手绘猩猩/插画这一核心元素无AI生图无法做，降级为CSS几何色块+大号emoji+不规则transform旋转的文字块替代，插画缺失还原度降约20%
-- 字体:Fraunces(可调圆润)/ Bree Serif替代Cooper；正文Inter
-
-**不羁玩梗流行版 / Irreverent Pop (Reddit式)** `大胆·还原80%`
-- 参考:Reddit Ads销售deck(被Dock列为最有性格)、David Carson式不羁排版、90年代web复古、Memphis玩味
-- 适配:Z世代品牌、玩梗营销deck、社区/创作者向、敢于不正经的提案
-- 视觉DNA:配色=Reddit橙红#FF4500+撞色，90s web复古色。字体=混排/打破网格的David Carson式排版，玩梗口语文案。母版=①fun页玩梗大字②facts页节奏转折严肃数据③口语标题。标志=打破网格混排、橙红、玩梗口语、fun→facts节奏反转、复古web质感
-- HTML实现:故意打破网格用transform旋转/重叠定位/混合字号；橙红+撞色块；复古质感用粗黑边border+硬阴影box-shadow(无blur)。自定义meme插画降级为emoji+几何拼贴，但混排排版本身HTML可还原
-- 字体:Archivo / Space Grotesk + 混搭Inter制造对比
-
-**Y2K膨胀大字 / Maximalist 3D-Type (Wrapped式)** `大胆·还原78%`
-- 参考:Spotify Wrapped 2022/2023/2025、Memphis撞色、Y2K/Maximalism、duotone人像渐变
-- 适配:年度回顾(情绪出圈向)、个性化数据卡、社交分享竖屏卡、品牌年终
-- 视觉DNA:配色=高饱和撞色满版背景(品红+青+橙)+Spotify绿点睛+duotone双色渐变。字体=顶天立地巨型数字，年份/数字做3D膨胀/金属质感。母版=①撞色满版+巨型膨胀数字②duotone人像/色块底+反白大字③竖屏可分享卡。标志=巨型膨胀3D数字、撞色满版、duotone渐变、年份金属质感、竖屏story卡
-- HTML实现:撞色满版background；3D膨胀数字用CSS text-shadow多层叠加+transform:perspective或SVG+stroke制造立体(非真3D渲染)；duotone用mix-blend-mode+渐变叠在灰度图占位块上。金属质感降级为渐变填充文字background-clip:text，还原度降约15%
-- 字体:Archivo Black / Anton超粗 + 数字Clash Display
-
-
-#### 中性派
-
-**Bento便当格模块网格 / Bento Grid** `中性·还原95%`
-- 参考:Apple Keynote Bento Grid时代、新一代MBB Bento/Big-Type deck(2024-2026)、Stripe年报指标卡矩阵、Pitch.com QBR模板
-- 适配:产品功能汇总、咨询/QBR数据汇报、销售成果页、town hall指标页
-- 视觉DNA:配色=浅灰/奶白底(#F5F5F7/cream)或近黑底+品牌主色+1-2强调色，卡片浅色分区底+圆角+微描边/微阴影。字体=超大display标题+常规正文，字重对比强烈，KPI数字tabular figures。母版=①标题页巨型单句+留白②bento页2×2/3列不等高卡片每卡一洞见(数字/线性icon/sparkline)③one-insight超大数字页。标志=不等高卡片网格、圆角微描边、呼吸感
-- HTML实现:CSS Grid的grid-template-areas做不等高bento；卡片border-radius+box-shadow微阴影+1px hairline；sparkline用内联SVG；线性icon用inline SVG stroke。零贴图
-- 字体:Inter / Geist + 数字Geist Mono
-
-**Neo-Swiss暗色终端美学 / Dark Hairline Terminal** `中性·还原94%`
-- 参考:Linear pitch deck、Vercel设计语言、CS50深黑舞台课件；字体Inter Tight+JetBrains Mono
-- 适配:开发者工具/技术产品发布、技术路演、工程向汇报
-- 视觉DNA:配色=近黑底(#0D0D0F/#111113)+hairline细线#262629网格+单一紫蓝强调(#5B5BD6/#7C7CFF)。字体=Inter Tight大标题+JetBrains Mono做标签/数据。母版=①极简标题页一句话+mono小标②hairline分隔的数据网格③mono标签的特性列表。标志=1px细线网格、mono单等宽标签、极致留白、近黑非纯黑
-- HTML实现:近黑背景+border:1px solid的hairline网格；mono标签用等宽font-family；微光用极淡box-shadow/border highlight而非真光效(降级避开赛博霓虹禁区)。注意避开#0D1117深蓝禁区，用中性近黑
-- 字体:Inter Tight + JetBrains Mono / IBM Plex Mono
-
-**双字体咨询版 / Two-Font Consulting (Bower式)** `中性·还原90%`
-- 参考:McKinsey 2019品牌系统(Wolff Olins设计，Bower衬线+无衬线)、BCG Executive Perspectives、深蓝细线pattern
-- 适配:咨询报告、高管汇报、行业研究、权威机构提案
-- 视觉DNA:配色=深蓝(#051C2C/McKinsey深蓝)×白二元+单一品牌色高亮(BCG绿#00805A)，暖灰底带呼吸感。字体=characterful衬线大标题(Bower式)与无衬线正文高对比并置。母版=①左上角结论式action-title②蓝色细线pattern装饰③杂志式左右分工(结论文字+视觉)④大数字data-point卡。标志=衬线×无衬线高对比、深蓝细线pattern、action-title、暖灰高级感
-- HTML实现:双字体font-family并置(衬线标题+无衬线正文)；细线pattern用repeating-linear-gradient或SVG line；data-point卡纯CSS；照片灰度处理这一项无照片可省。蓝紫edge shimmer降级为纯色边
-- 字体:Playfair Display / Fraunces衬线标题 + Inter正文(替代Bower)
-
-**图谱箭头企业版 / Diagram-Driven Isotype** `中性·还原88%`
-- 参考:Salesforce销售deck、Isotype(Otto Neurath)谱系、Gene Zelazny《Say It With Charts》、Hans Rosling/Gapminder
-- 适配:平台/架构讲解、客户旅程、流程方法论、生态地图
-- 视觉DNA:配色=企业蓝色块+产品线分色区分+图标化能力网格。字体=清晰无衬线。母版=①横向客户旅程箭头流②分层平台架构图③图标化能力网格④2×2/瀑布/金字塔结构图。标志=箭头流程、分层架构盒、Isotype图标网格、流程即叙事
-- HTML实现:箭头流程用Flexbox+CSS clip-path三角或SVG arrow；架构分层用嵌套带边框div；图标用inline SVG stroke统一描边；瀑布/金字塔用Grid+斜切。气泡图可用CSS圆形+定位。纯矢量绘制
-- 字体:Inter / IBM Plex Sans(图表友好)
-
-**单图母图概念图解 / Diagrammatic Minimalism** `中性·还原95%`
-- 参考:Simon Sinek黄金圆环(Golden Circle)TED、Bauhaus几何抽象、信息建筑『一图定全场』
-- 适配:理论框架讲解、TED式思想传播、模型/方法论可视化、单概念keynote
-- 视觉DNA:配色=极简白/浅底+黑+1个强调色，几何纯色。字体=无衬线，标签大写嵌入图形。母版=①唯一几何母图(同心圆/三角/矩阵)承载全部概念②由内向外箭头③对比案例。标志=单一几何母图、嵌套同心圆/三角、大写标签、一图承载概念
-- HTML实现:同心圆用border-radius:50%嵌套div或SVG circle；三角用clip-path/SVG polygon；箭头SVG marker；标签absolute定位贴在图形上。纯几何，HTML完美还原
-- 字体:Manrope / Futura系(Jost开源替代)几何感
-
-**Sparkline叙事波形 / Narrative Sparkline (Duarte式)** `中性·还原91%`
-- 参考:Nancy Duarte《Resonate》Sparkline叙事图谱、Al Gore《An Inconvenient Truth》、Duarte Inc.数据叙事
-- 适配:演讲结构设计、变革叙事、before/after对照、数据故事弧线
-- 视觉DNA:配色=深底或白底+品牌橙强调转折点+灰化对照。字体=无衬线，annotation标注点。母版=①横贯全屏的振荡波形线②波形上text标注点③上下并置对照波形④全黑底孤悬一条数据线⑤逐步reveal。标志=横贯波形线、波形标注点、橙色转折、对照波形、爬出画面的曲线
-- HTML实现:波形线用内联SVG path(平滑贝塞尔)；标注点用SVG circle+text定位；对照波形上下两条path；reveal用CSS动画stroke-dashoffset。纯SVG绘制无素材
-- 字体:Inter + 数字Geist Mono
-
-
-#### 安静派
-
-**断言-证据 / Tufte信息设计** `安静·还原93%`
-- 参考:Michael Alley Assertion-Evidence(Penn State实证)、McKinsey/BCG action-title、Edward Tufte数据墨水比、Barbara Minto金字塔原理
-- 适配:学术/工程汇报、数据严谨型咨询页、政策研报、技术评审
-- 视觉DNA:配色=白/极浅灰底+黑正文+单一克制强调色(深蓝/砖红)。字体=整句话标题(非名词短语)，标题下独占一张图，文字标注嵌进图里。母版=①整句action-title②标题下单图证据③零bullet。标志=整句标题、单图证据、嵌入式标注、零chartjunk、高数据墨水比
-- HTML实现:整句标题靠排版层级；图表用纯CSS/内联SVG画极简折线散点(去网格线去图例，标注直接text定位在数据点旁)；零装饰。Tufte的克制正是HTML强项
-- 字体:Source Serif / Lora标题 + Inter正文(双字体阅读级)
-
-**瑞士机构极简 / Institutional Swiss Minimal** `安静·还原96%`
-- 参考:Sequoia官方10页pitch模板、Airbnb 2009种子轮deck、Müller-Brockmann网格、Massimo Vignelli
-- 适配:投资路演、标准商业提案、问题-解法叙事、品牌去装饰提案
-- 视觉DNA:配色=纯白底+黑灰正文+单一品牌强调色(Airbnb珊瑚红#FF5A3C/中性蓝)。字体=Helvetica系无衬线，标题中号粗体一句话，正文短句大间距。母版=①居中logo+slogan②顶部一句话标题带+下方3栏对仗(Problem/Solution三点)③TAM大数字分层④2×2竞品矩阵。标志=顶部标题带、三栏对仗、单色强调、2×2矩阵
-- HTML实现:Flexbox三栏对仗；2×2矩阵纯CSS Grid+border画；TAM分层用嵌套div或同心方块；一页一信息。几乎纯排版网格，HTML理想对象
-- 字体:Inter / Helvetica Now替代Helvetica；正文Inter
-
-**杂志编辑长文流 / Editorial Longform** `安静·还原95%`
-- 参考:Stripe Annual Letter($1.9T)、Amazon六页叙事备忘录、Benedict Evans『X eats the world』、Stripe Press
-- 适配:年度信/复盘叙事、深度思想长文、内部更新、研报型阅读物
-- 视觉DNA:配色=奶白/米白底(#FBFAF8)+深墨字+品牌色点睛(Stripe紫#635BFF)。字体=衬线或高品质无衬线，散文体段落+内联数据卡，超大display数字穿插。母版=①刊头大标题②多栏散文+内联指标卡③超大数字段落锚点。标志=出版物阅读节奏、内联数据卡、克制留白、散文体而非bullet
-- HTML实现:多栏column-count或Grid；内联数据卡float/inline-block嵌入正文；衬线正文max-width控制行宽65ch；超大数字穿插。纯排版，零素材
-- 字体:Newsreader / Source Serif正文 + Inter辅助；数字tabular
-
-**人文圆角卡片 / Humanist Rounded Cards (Khan式)** `安静·还原80%`
-- 参考:Khan Academy Wonder Blocks设计系统、Source Serif Pro衬线、森林绿品牌、友善人文主义
-- 适配:教育产品、亲和力课件、公益/非盈利deck、温暖品牌提案
-- 视觉DNA:配色=森林绿#14BF96/#0A5C4B+米白底+暖色辅助，柔和不刺眼。字体=Source Serif衬线标题(人文气)+无衬线正文。母版=①圆角卡片组件组②衬线标题+亲和正文③真实摄影位(降级为绿色系几何/圆角色块)。标志=森林绿、衬线标题、大圆角卡片、人文温暖、不完美亲和质感
-- HTML实现:大圆角border-radius卡片+柔和box-shadow；衬线标题font-family；暖米白底。真实师生摄影这一项无AI生图，降级为绿色系几何插画块/大圆角纯色占位+emoji人物，照片缺失还原度降约18%
-- 字体:Source Serif 4标题 + Nunito Sans / Inter正文(Nunito圆润呼应人文)
-
-**研报密集图表 / Dense Research Report (Meeker式)** `安静·还原92%`
-- 参考:Mary Meeker《Internet Trends》(BOND)、CB Insights《State of AI》、McKinsey Global Institute《Year in Charts》、FT/Bloomberg数据新闻
-- 适配:趋势研报、行业数据复盘、密集数据汇报、市场地图
-- 视觉DNA:配色=白底+品牌色(BOND/CB Insights亮蓝#0066FF)阶梯单色高亮其余灰化，几乎零留白。字体=结论式句子标题，每页1图密度，极小来源脚注。母版=①结论句标题+满页单图②logo网格market map③大数字KPI卡④密集多图网格+脚注。标志=结论句标题、零留白研报感、单色阶梯高亮、logo市场地图、来源脚注规范
-- HTML实现:密集图表全用纯CSS/内联SVG画(柱/折线/堆叠/散点)；logo market map用Grid+文字/SVG占位格；KPI卡CSS；脚注小字。极致信息密度正是HTML擅长，零素材
-- 字体:Inter + IBM Plex Sans + 数字tabular Geist Mono
-
-**纯文字宣言备忘录 / All-Text Manifesto (Netflix/Amazon式)** `安静·还原97%`
-- 参考:Netflix Culture Deck(2009，125页)、Amazon六页叙事备忘录(Bezos)、Tufte反PowerPoint主张、Matthew Carter阅读级排印
-- 适配:文化宣言、价值观宣讲、深度备忘录、反PPT的纯文档演示
-- 视觉DNA:配色=纯白或纯黑底+单一强调色(Netflix红#E50914)做唯一高亮，极致克制。字体=阅读级排印，一页一观点金句断言/纯散文零bullet零图。母版=①满版底+金句断言②口语化坦诚段落③制度名词高亮(Keeper Test)④六页散文+附录表。标志=纯文字一页一观点、零图零bullet、单色高亮金句、口语坦诚、silent-read文档感
-- HTML实现:纯排版：金句用大字clamp()左对齐层级；散文max-width控制行宽；唯一强调色span高亮关键短语；附录用极简table。零素材零图，纯文字是HTML最稳的还原
-- 字体:Newsreader / Source Serif(阅读级)或Inter(宣言式)；标题可Archivo超粗
-
+1. **First select half of the area** according to the output type: making a web page/landing page/official website → 20 types of web pages; making a PPT/deck/presentation → 20 types of PPT.
+2. **Temperature system**: each labeled `Bold/Neutral/Quiet`. ** Deliberately let bold models account for the majority ** - The deterministic bias of the model is naturally towards quiet and minimalist, and the library ratio should push it towards bold models.
+   - Direction A (stable chassis) chooses from quiet/neutral according to needs; direction B takes different temperatures to draw contrast; **direction C is forced to inject bold styles by SKILL's "seconds roulette"**.
+   - ❌ Don’t fall into “off-white + white space + an embellishment color” in all three directions - that is the most common failure mode.
+3. **Reduction degree**: ≥90%, do it with eyes closed; 70-90%, the main body can be done, individual details are downgraded; <70% (such as Memphis distressed texture) must be **clearly marked in the output which parts are downgraded with solid color blocks**, and do not pretend to be able to create the original texture.
+4. **Font**: Each type has an open source alternative (Inter/Geist/Manrope/Space Grotesk/Fraunces/Playfair, etc.), do not write paid fonts (Söhne/Circular, etc.).
+5. Package: SKILL "design direction advisor" Phase 3-5 uses this library to push 3 directions; `assets/showcases/` has a pre-made screenshot gallery.
 
 ---
 
-## ⚠️ AI 生图专用风格（仅在确认用户有生图能力时才推，default 不可选）
+## Web style library (20 types)
 
-下面这些风格的灵魂在**动态生成视觉 / 3D / 粒子 / 电影级光影 / 手绘插画**，纯 HTML/CSS 无生图下只能做出严重劣化的 mock，**从 default 推荐池剔除**。用户明确有生图能力（走 `huashu-gpt-image`）时才作为候选：
+#### Bold faction
 
-| 风格 | 灵魂 | 为什么 HTML 做不了 |
+**Media-level Brutalism Editorial Brutalism (large Helvetica presses small text)** `Bold·Restore 98%`
+- Reference: Bloomberg Businessweek (revised by Richard Turley 2010-2014, edited by Code and Theory); Neue Haas Grotesk pedigree
+- Suitable for: media/content publishing, AI product release, brand official website hero, research report cover, opinion-type long header image
+- Visual DNA: Color matching pure black #000 + pure white #FFF + hyperlink blue #0000EE, embellished with signal orange red #FF433D/terminal green #00A33E. The font Helvetica/Neue Haas Grotesk, 120px+large headline, left-aligned and tight spacing directly suppresses the 14px small text, extreme font size contrast. The layout is modular grid + 1px regular line and column cutting, and the high information density deliberately leaves no blank space. Logo elements: rule line columns, blue underline for hyperlinks, and large color blocks on a black and white background.
+- HTML implementation: Pure CSS can be restored 1:1. CSS Grid is used for module grid + border is used for regular line columns, clamp() is used for super-large responsive font size + letter-spacing is tightened, the system Helvetica/Arial stack or Inter is used, and hyperlinks are directly underlined with #0000EE. Zero material dependency.
+- Font: Inter (replacing Helvetica/Neue Haas Grotesk), code using Geist Mono
+
+**New Brutalism color contrast information flow Neo-Brutalism (thick black stroke card + high saturation contrast color)** `Bold·Restore 95%`
+- Reference: The Verge 2022 redesign (in-house team, PolySans + Mānuka)
+- Adaptation: media/content station, AI product aggregation page, event landing, community list page, Xiaohongshu style information card
+-Visual DNA: color matching of electric purple #5200FF~magenta #E1306C, highly saturated main color + bright yellow #F8E000 for emphasis + pure black #08080D + white, large-area contrasting color blocks are deliberately not soft. Font geometric sans serif headline + serif body text contrast. The layout is card-based feed flow, 2-4px thick black strokes, hard color block partitions, and almost no rounded corners. Logo elements: thick strokes, card hover, contrasting color flipping, and unfinished interface temperament.
+- HTML implementation: the strength of pure CSS. border: 3px solid #000 thick stroke + box-shadow hard shadow offset (4px 4px 0 #000) + grid/flex card flow + :hover switch background contrasting color flip. No 3D/light and shadow barriers.
+- Font: Space Grotesk (replacement PolySans) + any serif such as Fraunces
+
+**Memphis Maximalism of retro collage (contrast color blocks + misplaced stacking + retro fonts)** `Bold·Restore 72%`
+- Reference: Gucci Vault concept store (Alessandro Michele); Memphis design movement / Sagmeister rebellious gene
+- Suitable for: e-commerce concept store, creative activity page, brand experiment campaign, Y2K retro theme, holiday marketing page
+-Visual DNA: Color matching retro red/mustard yellow/sapphire blue/purple/olive green large area contrasting colors + old cream warm bottom, strong and deliberately disharmonious. The font is a mix of retro serifs and decorative characters, with a printing texture, breaking the grid and stacking them in misplaced positions. The layout is curated by anti-grid collage, with modules of different sizes stacked at random, like walking in a digital room. Logo elements: contrasting color blocks, misplaced stacking, and unconventional navigation Easter eggs.
+- HTML implementation: transform:rotate() for misaligned stacking + position:absolute stacking + high saturation background contrasting color blocks + retro Google Fonts. The real distressed texture cannot be restored with CSS and is downgraded to a solid color block + mix-blend-mode/contrast filter to simulate the texture. The geometric collage version is established and the archival distressed version will be downgraded.
+- Font: DM Serif Display + Bungee (decoration) + Space Mono
+
+**Candy-colored raised three-dimensional button gamification Friendly Geometric Candy** `Bold·Restore 85%`
+- Reference: Duolingo (Johnson Banks + Monotype, Feather Bold font); anti-Silicon Valley minimalism
+- Adaptation: educational language learning, consumer App landing, gamification products, mass-friendly products, event registration pages
+- Visual DNA: Color matching Duo Green #58CC02 + Duck Yellow #FFC800 + Sky Blue #1CB0F6 candy high saturation + white background, round and friendly. The font is super bold and round (feather bold). Layout cards with large rounded corners, raised 3D buttons (hard shadow at the bottom = pressable feeling), mascot position + progress bubble. Logo elements: 3px solid bottom shadow three-dimensional button, press displacement animation, super rounded corners.
+- HTML implementation: pure CSS. box-shadow: 0 4px 0 hard bottom shadow to make raised button +: active translateY (4px) elimination shadow to simulate pressing, border-radius large rounded corner, solid color block. When the mascot does not have a picture, use CSS geometry or emoji as a placeholder (slight downgrade).
+- Font: Baloo 2 / Nunito (super bold round instead of Feather)
+
+**Pure CSS geometric illustration + responsive deformed easter egg Pure-CSS Art** `Bold·Restore 80%`
+- Reference: Lynn Fisher (lynnandtonic.com, pure CSS art legend, Adobe special article report)
+- Suitable for: personal homepage, creative 404/Easter egg page, brand landing, technology blog header image, designer self-presentation
+-Visual DNA: 2-4 color high-contrast flat surfaces (change colors at each breakpoint). Font bold geometric sans serif title. The core of the layout is "image deformation with the viewport" - a group of CSS shapes are reorganized into different pictures at different breakpoints (such as the number of layers of a building changing with the screen width). Logo elements: geometric illustrations drawn with pure CSS, breakpoint-driven reflow Easter eggs, and zero images.
+- HTML implementation: pure CSS dazzling battlefield, zero material is the advantage. div+border-radius/clip-path/transform/box-shadow stacks geometric shapes, and @media breakpoints change the shape, size and position to achieve deformation. The difficulty lies in the design concept rather than the technology, but each shape needs to be carefully hand-crafted.
+- Font: Rubik / Archivo (bold geometry is customized)
+
+**Bold Big-Type Editorial** `Bold·Restore 88%`
+- Reference: Jacquemus official website / Rik Oostenbroek / Domestika; fashion magazine big-character posters
+- Suitable for: e-commerce fashion, portfolios, media special topics, brand declaration pages, video course covers, large-print version of research reports
+-Visual DNA: minimalist black and white color + single restrained embellishment color (nude pink #E8C4C0 or true red). Display sans serif/high contrast serif font is very large, and the title takes up the entire screen. The layout is full grid, giant characters play with negative space, and pictures and text are divided into 1:1. Logo elements: giant headline with screen-to-body ratio, luxurious white space, left and right counterpoint typesetting.
+- HTML implementation: pure CSS restores perfectly. clamp() giant font + CSS Grid full width segmentation + lots of padding + vh unit to make the title fill the viewport. When there are no pictures, use solid color blocks/text blocks to replace the fashion blockbusters (slightly downgraded but the format remains intact).
+- Font: Archivo Expanded / Anton (Display) + Playfair Display (high contrast serif)
+
+**Cosmic Retro-Futurism** `Bold·Restore 75%`
+- Reference: Perplexity Comet browser publishing station (The Brand Identity: Black/Blue/Cream; "2001: A Space Odyssey" temperament)
+- Adaptation: AI product release station, technology brand declaration page, event countdown page, futuristic landing, concept conference
+- Visual DNA: Color matching pure black #0A0A0A + cream paper white cream #F0EAD8 + a touch of cobalt blue - peacock blue #2B4F91, low saturation like an old-fashioned astronomical atlas. The font is high-contrast serif (classical astronomy atlas style) + white space. Layout line drawing orbit/parabola SVG, planetary dots, cream background with black text, ancient book style typography. Logo elements: SVG celestial orbit lines, cream + blue + black colors, retro serif large characters, astronomical catalog texture.
+- HTML implementation: Pure CSS+SVG restores 80% of the temperament of the static version. SVG path draws an orbital parabola + CSS radially positioned planet dots + three-color variables + high-contrast serifs. The gap is the full-screen video transition (soul part) of "Falling from Space to Earth" - downgraded to CSS scroll parallax + SVG orbit rotation approximation.
+- Font: Cormorant Garamond / EB Garamond (high contrast serif) + Space Mono
+
+**Cinematic Sound-Viz Dark** `Bold·Restore 72%`
+- Reference: ElevenLabs; movie title sequence (Saul Bass-style minimalist dynamics) × audio engineering interface
+- Adaptation: audio/voice AI products, music technology stations, podcast platforms, media release pages, cinema-level brand hero
+- Visual DNA: Color matching pure black #000 base + pure white text + blue and purple gradient accent waveform. Large sans serif title Saul Bass style minimalist. Layout full-frame dark field, sound wave/spectrum visualization penetration, giant header pressure waveform, and card ribbon. Logo elements: colorful audio-waveform band, minimalist movie title style, high contrast black and white + single gradient, sound visualization motif.
+- HTML implementation: Pure CSS+SVG restores 70% of the temperament (the skeleton is perfect, the waveform is a degradation point). SVG polyline draws static waveforms or multiple div column arrays of different heights + CSS animation to create a "fake waveform" beating approximation. Gap: The Web Audio/Canvas spectrum that beats in real time with the sound cannot be restored by pure CSS, and the static image and dynamic soul cannot be restored.
+- Font: Inter / Sora (large sans serif)
+
+**Pixel Game Side-Scroller** `Bold·Restore 70%`
+- Reference: Robby Leonardi Interactive Resume (8/16-bit platform action game narrative, a tribute to Nintendo SNES)
+- Suitable for: creative resume/portfolio, brand fun campaign, gamification landing, event Easter egg page, personal fun homepage
+-Visual DNA: Color matching retro game multi-section partition - forest green #4CAF50 grass + sky blue #5DADE2, transitional space purple #2C2A4A, volcanic orange red #E8743B, submarine green #1ABC9C, each "level" changes to a set of highly saturated cartoon colors. Font Pixel font (8-bit feel) + thick sans serif. Layout horizontal/vertical scrolling divided into level scenes, parallax layering, scroll trigger displacement. Logo elements: color changing by level, pixel aesthetics, parallax scrolling, game HUD style UI.
+- HTML implementation: pure CSS + a small amount of JS to restore the skeleton (the original is HTML + CSS + jQuery without WebGL). Parallax layering position+scroll displacement, image-rendering:pixelated, CSS frame-by-frame background-position for sprite animation, segmented background color. Gap: Original hand-drawn pixel illustrations of characters/scenes - when there are no original illustrations, use CSS squares to create simple pixel icons instead (the art will be downgraded, but the technology will not be downgraded).
+- Font: Press Start 2P / VT323 (pixel font) + Inter
+
+
+#### Neutral faction
+
+**Bauhaus geometric logo + flat illustration system Bauhaus Geometric** `Neutral·Restore 90%`
+- Reference: Khan Academy rebrand (hexagon + petal logomark + Wonder Blocks design system); Bauhaus geometric composition
+- Adaptation: Educational course sites, brand logo systems, infographics, children-friendly products, event KV
+-Visual DNA: Three primary color spectrum - Bauhaus red #E63946/yellow #FFB703/blue #0077B6 + black and white, solid color block splicing. The font is geometric sans serif (rounded and geometric). Lay out circle/triangle/square basic geometric units to build illustrations, align grids, and modular puzzles. Logo elements: pure geometric logomark, flat illustration without gradient, and primary color blocks.
+- HTML implementation: Pure CSS geometry is omnipotent. border-radius: 50% to create circles, clip-path/border triangles, square divs to create geometric illustrations, CSS Grid alignment, and solid color fill without materials. Illustrations are hand-rubbed with CSS shapes or inline SVG geometric paths.
+- Font: Poppins / Manrope (Geometric rounded instead of Wonder Blocks)
+
+**Dark two-color sidebar developer portfolio Dark Editorial (dark bottom + single fluorescent accent + monospaced font) ** `Neutral·Restore 96%`
+- Reference: Brittany Chiang (brittanychiang.com v4, dev portfolio de facto standard)
+- Adaptation: Portfolio personal homepage, developer-oriented products, technology brand site, resume page, AI tool landing
+-Visual DNA: color matching dark green/navy base #0A192F + slate gray text #8892B0 + single fluorescent green accent #64FFDA. Font sans serif body text + monospaced font (numbering/labeling). The layout has left fixed sidebar navigation + right scrolling main area with double columns, section number 01/02, link hover underline slide in. Logo elements: single accent color, equal-width numbered labels, and sidebar anchor highlighting.
+- HTML implementation: pure CSS completely restored. position:sticky to make fixed side column + CSS Grid double column + single accent variable + equal width word label + :hover underline transform to slide in. Zero material, pure layout and micro-interaction.
+- Font: Inter + JetBrains Mono (monospaced)
+
+**Warm Editorial (cream paper base + terra cotta orange + serif sans serif mixed layout) ** `Neutral·Restore 97%`
+- Reference: Anthropic/Claude (DBCo + Geist Studio, Styrene × Tiempos); Penguin/Pelican paperback typography
+- Adaptation: AI product website, brand official website, long article reading page, Orange Book e-book, research report, training materials
+- Visual DNA: Color matching cream paper base #F5F0E8 + terracotta orange #CC785C/#D97757 embellishment + nearly black text #191919, warm and low saturation. The font is a mix of serif title (Tiempos feel) and sans-serif body text (Styrene feel). Lay out book-style single-column reading flow, comfortable row height, and controlled dividing lines. Logo elements: paper-like warm bottom, terracotta orange, publication-grade typography rhythm.
+- HTML implementation: pure CSS 100% restoration, zero material. Background color variable + serif sans-serif font stack mixing + max-width limit reading width + line-height 1.7 comfortable line height. This is a safe home for the warm version of Anthropic Terracotta Orange.
+- Font: Fraunces / Newsreader (for Tiempos serif) + Inter (for Styrene)
+
+**Linear Dark Glow+Bento Mesh Glassmorphism Bento** `Neutral·Restore 85%`
+- Reference: Linear / Cursor ('The Linear Look' phenomenal genre, Frontend Horse has code formula)
+- Adaptation: SaaS/AI product site, developer tools, technology brand hero, product function display, dark dashboard demonstration
+-Visual DNA: Color matching near black base #08090A + desaturated blue and purple brand #5E6AD2 + low saturation blue and purple shimmer gradient #4EA7FC → #B59AFF. Font geometric sans serif negative spacing compact. The layout of the bento box is divided into grid blocks, hair dividing lines, and glass mimic cards. Logo elements: dark background glowing gradient border, bento block, streamer, frosted glass.
+- HTML implementation: pure CSS strong restoration. box-shadow/filter blur+radial-gradient makes glowing halo, background-filter:blur glass mimicry, conic/linear-gradient border, CSS Grid spells bento. The gap is only "real product UI screenshot" - replaced by a simplified fake UI with color blocks + text spelling (this part is downgraded).
+- Font: Inter / Geist (negative kerning) + Geist Mono
+
+**Angled Fluid Gradient** `Neutral·Reduction 92%`
+- Reference: Stripe (iconic angled gradient banner, Klim customized Söhne font)
+- Adaptation: SaaS/Fintechlanding page, brand official website hero, product release page, event banner, AI product marketing page
+- Visual DNA: Color matching multi-color fluid gradient (indigo #635BFF → cyan → pink → orange warm tone) as hero background + pure white content area + nearly black text. The font is sophisticated sans serif (Söhne feel). The layout is divided into oblique color blocks (skew corner partitions) and gradient hero pressed structured grid text. Logo elements: angled beveled border, multi-color fluid gradient, rational grid pressure expression gradient.
+- HTML implementation: pure CSS. transform:skewY() or clip-path:polygon() makes oblique partitions, linear-gradient multi-color overlay (CSS animation can be added to slow the flow) makes fluid gradient strips, and Grid makes the structured text below. Zero material.
+- Font: Inter / Hanken Grotesk (for Söhne)
+
+**Utility-First Colorful Docs** `Neutral·Restore 98%`
+- Reference: Tailwind CSS Docs (Sky/Cyan brand color + functional classification rainbow color bar)
+- Adaptation: technical documentation, API reference, design system site, tutorial site, developer knowledge base, SaaS help center
+- Visual DNA: color matching Sky blue #38BDF8 brand + teaal → cyan → sky blue gradient + Slate gray scale #0F172A/#64748B/#F8FAFC. The document uses rainbow color strips to distinguish functional categories (pink #EC4899/purple #A855F7/green #10B981/orange). The font is crisp sans serif + monospaced code. The layout has three columns of left column navigation + middle text + right TOC, color highlighted code blocks, and classification color labels. Logo elements: cyan gradient hero, rainbow classification color, three-column document skeleton, syntax highlighted code block.
+- HTML implementation: pure CSS 98% reduction (itself a CSS framework document). Grid three columns + linear-gradient cyan hero + categorical color variables + code block syntax color is colored with span. Inter is open source, only dark switching/copy requires lightweight JS. Zero light and shadow/3D/hand-painted.
+- Font: Inter + JetBrains Mono / Fira Code (code)
+
+**Terminal-Core Soft-Futurism (equal-width characters + equidistant cubes)** `Neutral·Restore 80%`
+- Reference: Cursor (Anysphere); Developer Terminal Aesthetics × Teenage Engineering Industrial Minimalism
+- Adaptation: AI programming tool station, CLI product landing, developer infrastructure, technology brand hero, terminal products
+-Visual DNA: Color matching carbon black #0B0D14 base + warm white text #F2F0EF + restrained blue and purple gradient accent to embellished buttons and halo. The font is monospaced as the protagonist (command line feel) + sans serif as the auxiliary. Layout the command line/code block foreground, bento partition, and 2.5D isometric cube representation. Logo elements: monospaced command line, isometric projection cube, warm white × carbon black, restrained gradient halo, industrial minimalism.
+- HTML implementation: pure CSS 80% restoration. Equal-width font code block + dark bento + box-shadow halo; 2.5D isometric cube is hand-rolled with CSS 3D transform (rotateX/Y+skew) or SVG isometric projection. Gap: The multi-interface demo that can be clicked and switched requires JS + fake UI splicing. No WebGL required.
+- Font: Geist Mono / JetBrains Mono (main character) + Inter (auxiliary)
+
+
+#### Quiet faction
+
+**Functional Brutalism Grid Community Functional Brutalism (gray line division + system word + blue link) ** `Quiet·Restore 98%`
+- Reference: Are.na / Lobsters / Quartz; Müller-Brockmann grid digital implementation + Tufte information density
+- Adaptation: community/UGC platform, content aggregation site, document knowledge base, mobile-first content flow, geek-oriented products
+-Visual DNA: color matching near white background #FBFBFB+black text+1px gray dividing line #E0E0E0+classic link blue #0000EE/visited purple. Font system font stack (-apple-system/no decoration). Layout high-density information lists, thin gray lines in columns, minimal white space, and tight line spacing. Logo elements: hair gray dividing line, blue link, system word, information density priority.
+- HTML implementation: Pure CSS is the easiest to restore, which is the true nature of Brutalist Web. border-bottom: 1px gray line list + system-ui word stack + compact padding + blue link. Almost no materials or JS required, pure structure.
+- Font: system-ui system font stack / IBM Plex Sans (cover)
+
+**Dark gallery framed Gallery Dark (dark black negative space + single column large image + EXIF ​​small text)** `Quiet·Restore 75%`
+- Reference: Glass (glass.photo) / Bottega Veneta; Art Museum Darkroom + Apple Photos Content First
+- Suitable for: photography portfolio, luxury e-commerce, immersive display of visual content, personal gallery page, high-end product display
+-Visual DNA: color matching pure black background #0A0A0A + the only color provided by the artwork itself + very light gray EXIF ​​small letters #666. Very thin sans serif small font. The layout features a single-column, centered large picture, a huge negative space frame, and small metadata text under the picture. Logo elements: darkroom black background, content-first UI retreat, EXIF-style small font footnotes, and exclusive viewport for large images.
+- HTML implementation: Pure CSS restores the style skeleton. Pure black background + centered max-width single column + huge padding framed white space + small text metadata. The gap is the "real photography" itself - replacing it with a placeholder image/solid color block will lose its soul, but the darkroom atmosphere and layout are 100% compatible.
+- Font: Inter (fine weight 300) / Cormorant (serif luxury feel optional)
+
+**Swiss ultimate black and white Swiss Monochrome (Vercel style pure black and white + Geist + sharp corners) ** `Quiet and 98% restored`
+- Reference: Vercel / Next.js Docs (self-developed Geist has been open source); Massimo Vignelli less is more
+- Adaptation: developer tool documentation, technology brand official website, AI product site, SaaSlanding page, minimalist research report
+- Visual DNA: Color matching pure black #000 + pure white #FFF + grayscale #888, zero color or just a touch of blue link. Font Geist geometric sans serif + Geist Mono. The layout has sharp right angles (no or minimal rounded corners), high contrast, precise grid, and limited white space. Logo elements: pure black and white, sharp corners, Geist font, triangle/arrow geometric mark.
+- HTML implementation: pure CSS 100% restored, Geist open source can be directly quoted. CSS Grid precision grid + pure black and white variable + border-radius: 0 acute angle + hairline border. This is the most comfortable and minimalist home of HTML, with zero dependence on materials.
+- Font: Geist + Geist Mono (Vercel open source original version)
+
+**Japanese style white box gallery Kenya Hara White Gallery** `Quiet·Restore 80%`
+- Reference: Cosmos (cosmos.so) / Aesop official website; Kenya Hara "white" emptiness + Swiss grid hybrid
+- Suitable for: high-end e-commerce, creative galleries, content curation platforms, designer portfolios, brand boutiques, moodboard sites
+- Visual DNA: The color scheme is almost all white #FAFAFA base + pure black text #0A0A0A + very light gray segmentation #EFEFEF. The content image provides all colors and the UI retreats to the background. Minimalist font system/geometric sans-serif, small fonts, large kerning. The layout is masonry waterfall grid, extreme white space, light gray hair separation, and oriental emptiness. Logo elements: white box aesthetics, luxurious white space, content-first UI retreat, waterfall flow curation.
+- HTML implementation: Pure CSS restores the static layout (differentiated from the dark gallery in "white"). CSS columns or Grid do masonry + near white variable + large padding white space + light gray separation. The gaps are Lenis/GSAP silky inertial scrolling and image entry easing (60% of the high-end feel is here), CSS is only basic transition, and the dynamic effect layer is downgraded.
+- Font: Inter (fine weight)/Cooper Hewitt (same open source as Aesop)
+
+
+## PPT style library (20 types)
+
+#### Bold faction
+
+**Neo-Swiss Billboard Editorial** `Bold·Restore 98%`
+- Reference: Big-Number Editorial genre of Scribe $75M, Flock Safety $47M and other AI/SaaS roadshow decks; Bloomberg Businessweek infographic; Pentagram
+- Adaptation: Financing roadshow, QBR/business review, annual trend review, product release key pages
+- Visual DNA: Color matching = pure white (#FFFFFF) or nearly black (#0A0A0A) base + single highly saturated accent color (electric blue #2D5BFF/fluorescent green #00E676/brand orange #FF6B2C) + neutral grid line #E5E5E5. Font = extra large bold sans serif, title takes up half the screen, numbers tabular-nums are of equal width and tight spacing. Master = ① Large color block chapter page with one word ② Giant numbers occupying half the screen (3.2x) + small notes ③ Left and right column comparison ④ Full width flat polyline/column. Logo = billboarding large characters, strict baseline grid, large color block chapter pages
+- HTML implementation: use clamp() for super large numbers; use CSS Grid for strict grids; background-color for large color block chapter pages; use pure div+CSS or inline SVG for polyline columns (sharper than textures); number alignment font-variant-numeric:tabular-nums. Zero Illustration Zero 3D
+- Font: Inter/Geist/Söhne instead of Neue Haas Grotesk; numbers with Geist Mono
+
+**Black Big-Number Stage** `Bold·Restore 97%`
+- Reference: Steve Jobs 2007 iPhone Keynote, Xiaomi SU7 Ultra Lei Jun press conference, Spotify Wrapped, Presentation Zen (Garr Reynolds)
+- Adaptation: product release theme presentations, idea demonstrations, all-staff town hall, emotional annual reviews
+- Visual DNA: color matching = pure black #000000 base + pure white #FFFFFF with high contrast, and only one brand accent color highlighted on one page (Xiaomi Orange #FF6900/Spotify Green #1ED760/Apple Blue #2997FF). Font = geometric sans-serif bold, one word or a large number on the screen fills the field of view, and the font spacing is tightened. Master = ① Title page with a black background and a line of large characters in the center ② Data climax page with giant numbers + units + a line of notes ③ Left and right parameter comparison double columns (emphasis color vs gray) ④ Slogan single page. Lots of negative space
+- HTML implementation: several lines of CSS with white text on a black background; giant number clamp() + flex in the center; accent color highlight alone span; left and right contrast CSS Grid two columns + bar highlight; tabular-nums. Removing the product photos and replacing them with pure text is closer to the essence of Zen.
+- Font: Geist / Inter / Siyuan Black instead of SF Pro
+
+**Highly saturated monochrome brand contrast poster / Mono-Brand Type-as-Hero** `Bold·Restore 96%`
+- Reference: Spotify Wrapped visual system, Mailchimp Brand Book (Collins), Netflix red and black modern replica, COLLINS brand system
+- Adaptation: brand/marketing strategy, campaign presentation, town hall cultural page, event key visual
+-Visual DNA: Color matching = a single main color of the brand for the full base (Spotify green #1ED760/Mailchimp yellow #FFE01B/Netflix red #E50914) + black or white contrasting words, two layers of contrasting colors. Font = Extra large font is the main visual (type-as-hero). Master version = ① full color block base + white giant characters ② double color blocks divided up and down/left and right ③ full of giant numbers. Logo = monochrome full page, font as picture, high contrast and contrasting colors
+- HTML implementation: full background-color; super large font clamp() fills up; two 100vh color blocks are used for two colors; font-weight900+negative letter-spacing is used for font images. Solid color blocks with zero material, native HTML is the best
+- Font: Inter / Manrope / Archivo (extra bold) instead of Circular/Cavendish
+
+**Full-Bleed Gradient Manifesto** `Bold·Restore 82%`
+- Reference: Zuora "Tell a Different Story" sales deck (disassembled by Andy Raskin), Nike "Just Do It" campaign, National Geographic spread
+- Adaptation: sales proposal vision page, brand declaration, keynote transition page, mission and vision single page
+-Visual DNA: Color matching = full-page CSS gradient (warm orange → magenta/dark blue → cyan) or solid color bleeding + anti-white statement large characters + hashtag slogan (#shifthappens). Font = Heavy sans serif all caps slogan across. Master = ① Full-width gradient + centered highlight declaration ② Promised Land vision page ③ Customer logo wall. Logo = full-bleed bleeding, anti-white slogan, hashtag slogan
+- HTML implementation: linear-gradient/radial-gradient full version (no particles/light and shadow, pure CSS gradient is allowed); anti-white text position is centered; logo wall uses grid grayscale SVG/text placeholder. The part that originally relied on large documentary photos was downgraded to CSS gradient background + large characters. The lack of photos reduced the restoration degree by about 15%.
+- Font: Archivo / Anton / Manrope (extra bold)
+
+**CS50 Single Concept Candy Stage / Candy-Color Lecture Stage** `Bold·Restore 94%`
+- Reference: Harvard CS50 (David Malan), Lessig Method/Takahashi-ryu, Presentation Zen
+- Adaptation: educational courseware, technical lectures, concept explanations, code teaching
+- Visual DNA: color matching = dark black background #0A0A0A + high saturation candy color large character rotation (magenta #FF2D95/cyan #00E5FF/bright yellow #FFD500/green #39FF14). Font = sans serif, super large fonts floating in the center, one concept per screen, very little text. Master = ① A single candy-colored big word on a dark black background ② Syntax highlighting of equal-width code blocks ③ Big words with a spotlight on the stage. Logo = dark black floating candy-colored large characters, constant-width code highlighting, strong stage spotlight, very little text
+- HTML implementation: dark black background + monochrome super large font clamp() in the center; code blocks use pre + monospaced fonts + span coloring for syntax highlighting; light radial-gradient vignetting (non-particle light effect) is used for spotlighting. High degree of restoration
+- Font: Inter Ultra Bold + JetBrains Mono (code)
+
+**Playful hand-drawn minimalism / Playful Maximalist Editorial (Collins style)** `Bold·Restore 75%`
+- Reference: Mailchimp Brand Book (Collins 2018), New Yorker comic temperament, Cooper rounded serif, Cavendish fluorescent yellow
+- Adaptation: brand deck with attitude, creative agency proposal, cultural town hall, anti-SaaS minimalist marketing page
+- Visual DNA: Color matching = Cavendish fluorescent yellow #FFE01B large area + black + a small amount of contrasting colors, anti-SaaS minimalism. Font = Cooper-style rounded serif headline (playful) + magazine-style blank layout. Master page = ① Fluorescent yellow full background + weird title ② Magazine-style irregular white space layout ③ Large characters and funny copywriting. Logo = Fluorescent yellow, rounded serifs, playful layout, weird hand-drawn temperament (downgraded to geometric color blocks/emoji instead of real illustrations)
+- HTML implementation: Fluorescent yellow background; rounded serif font-family; magazine blank space using asymmetric Grid. The core element of hand-drawn orangutans/illustrations cannot be produced without AI. It is downgraded to CSS geometric color blocks + large emoji + irregularly transformed and rotated text blocks. The restoration degree of missing illustrations is reduced by about 20%.
+- Font: Fraunces (adjustable rounded)/Bree Serif instead of Cooper; text Inter
+
+**Irreverent Pop (Reddit style)** `Bold·Restore 80%`
+- Reference: Reddit Ads sales deck (listed as the most unique by Dock), David Carson-style uninhibited typography, 90s web retro, Memphis playful
+- Suitable for: Generation Z brands, meme marketing decks, community/creator orientation, daring to make irregular proposals
+-Visual DNA: Color matching=Reddit orange red #FF4500+ contrasting color, 90s web retro color. Font = mixed typesetting/David Carson style typesetting that breaks the grid, playing with the spoken word copy. Master version = ① Fun page with fun jokes and big characters ② Facts page with rhythm and serious data ③ Spoken title. Logo = breaking the grid, orange and red, funny spoken language, fun→facts rhythm reversal, retro web texture
+- HTML implementation: Deliberately break the grid and use transform rotation/overlapping positioning/mixed font sizes; orange-red + contrasting color blocks; retro texture using thick black border + hard shadow box-shadow (no blur). The custom meme illustration is downgraded to emoji+geometric collage, but the mixed typesetting itself can be restored by HTML
+- Font: Archivo / Space Grotesk + Mix and match Inter to create contrast
+
+**Y2K expanded large characters / Maximalist 3D-Type (Wrapped style)** `Bold·Restore 78%`
+- Reference: Spotify Wrapped 2022/2023/2025, Memphis color contrast, Y2K/Maximalism, duotone portrait gradient
+- Adaptation: annual review (emotional out-of-circle direction), personalized data card, social sharing vertical screen card, brand year-end
+-Visual DNA: color matching = highly saturated contrasting full-color background (magenta + cyan + orange) + Spotify green accent + duotone two-color gradient. Font = giant numbers that stand tall and tall, and the year/numbers are 3D expanded/metallic. Master version = ① Contrast color full version + giant inflated numbers ② Duotone portrait/color block base + reversed white characters ③ Vertical screen shareable card. Logo = giant expanded 3D numbers, contrasting color full page, duotone gradient, vintage metal texture, vertical screen story card
+- HTML implementation: contrasting color full-page background; 3D expanded numbers use CSS text-shadow multi-layer superposition + transform: perspective or SVG+stroke to create a three-dimensional (not true 3D rendering); duotone uses mix-blend-mode + gradient to superimpose on the grayscale image placeholder block. The metallic texture is downgraded to gradient filled text background-clip:text, and the restoration degree is reduced by about 15%.
+- Font: Archivo Black / Anton Ultra Bold + Digital Clash Display
+
+
+#### Neutral faction
+
+**Bento Lunch Box Module Grid / Bento Grid** `Neutral·Restore 95%`
+- Reference: Apple Keynote Bento Grid era, new generation MBB Bento/Big-Type deck (2024-2026), Stripe annual report indicator card matrix, Pitch.com QBR template
+- Adaptation: product function summary, consultation/QBR data report, sales results page, town hall indicator page
+-Visual DNA: Color matching = light gray/milk white base (#F5F5F7/cream) or nearly black base + brand main color + 1-2 accent colors, light color partition base of the card + rounded corners + micro strokes/micro shadows. Font = super large display title + regular text, strong contrast in font weight, KPI tabular figures. Master = ① Title page with a giant single sentence + blank space ② bento page with 2 × 2/3 columns of cards of varying heights. Each card has one insight (number/linear icon/sparkline) ③ one-insight super large digital page. Logo = unequal height card grid, rounded corners and micro strokes, breathing sense
+- HTML implementation: grid-template-areas of CSS Grid uses unequal height bento; card border-radius+box-shadow micro-shadow+1px hairline; sparkline uses inline SVG; linear icon uses inline SVG stroke. Zero map
+- Font: Inter/Geist + Number Geist Mono
+
+**Neo-Swiss Dark Hairline Terminal Aesthetics / Dark Hairline Terminal** `Neutral·Restore 94%`
+- Reference: Linear pitch deck, Vercel design language, CS50 deep black stage courseware; font Inter Tight+JetBrains Mono
+- Adaptation: developer tools/technical product releases, technical roadshows, and engineering reports
+-Visual DNA: color matching = near black base (#0D0D0F/#111113) + hairline #262629 grid + single purple and blue accent (#5B5BD6/#7C7CFF). Font = Inter Tight headline + JetBrains Mono for label/data. Master = ① minimalist title page with one sentence + mono tag ② hairline separated data grid ③ feature list of mono tag. Logo = 1px thin line grid, mono single width label, extreme white space, near black but not pure black
+- HTML implementation: nearly black background + border: 1px solid hairline grid; mono tag uses constant width font-family; low light uses extremely light box-shadow/border highlight instead of true light effect (downgrade to avoid cyberneon restricted area). Be careful to avoid #0D1117 dark blue restricted area, use neutral near black
+- Font: Inter Tight + JetBrains Mono / IBM Plex Mono
+
+**Two-Font Consulting (Bower style)** `Neutral·Restore 90%`
+- Reference: McKinsey 2019 brand system (designed by Wolff Olins, Bower serif + sans serif), BCG Executive Perspectives, dark blue thin line pattern
+- Adaptation: consulting reports, executive reports, industry research, proposals from authoritative organizations
+-Visual DNA: color matching = dark blue (#051C2C/McKinsey dark blue) × white binary + single brand color highlight (BCG green #00805A), warm gray bottom with a breathable feel. Font = characterful serif headlines (Bower style) juxtaposed with high contrast sans serif text. Master = ① Conclusion-style action-title in the upper left corner ② Blue thin line pattern decoration ③ Magazine-style left and right division of labor (conclusion text + visual) ④ Large digital data-point card. Logo = serif × sans serif high contrast, dark blue thin line pattern, action-title, warm gray high-end feel
+- HTML implementation: double font-family juxtaposition (serif title + sans-serif body); thin line pattern using repeating-linear-gradient or SVG line; data-point card pure CSS; photo grayscale processing does not require photos. The blue-purple edge shimmer is downgraded to a solid color edge.
+- Font: Playfair Display / Fraunces serif title + Inter text (replaces Bower)
+
+**Diagram-Driven Isotype** `Neutral·Restore 88%`
+- Reference: Salesforce sales deck, Isotype (Otto Neurath) pedigree, Gene Zelazny's "Say It With Charts", Hans Rosling/Gapminder
+- Adaptation: platform/architecture explanation, customer journey, process methodology, ecological map
+- Visual DNA: color matching = corporate blue block + product line color separation + iconized capability grid. Font = clear sans serif. Master = ① Horizontal customer journey arrow flow ② Layered platform architecture diagram ③ Iconized capability grid ④ 2×2/waterfall/pyramid structure diagram. Logo = arrow process, layered architecture box, Isotype icon grid, process as narrative
+- HTML implementation: Use Flexbox+CSS clip-path triangle or SVG arrow for arrow flow; use nested bordered divs for architectural layering; use inline SVG stroke for icons to uniformly stroke; use Grid+bevel for waterfalls/pyramids. Bubble charts can use CSS circle + positioning. Pure vector drawing
+- Font: Inter/IBM Plex Sans (chart-friendly)
+
+**Single picture master picture concept diagram / Diagrammatic Minimalism** `Neutral·Restore 95%`
+- Reference: Simon Sinek Golden Circle TED, Bauhaus geometric abstraction, information architecture "One picture determines the whole scene"
+- Adaptation: theoretical framework explanation, TED-style thought dissemination, model/methodology visualization, single concept keynote
+-Visual DNA: Color matching = minimalist white/light base + black + 1 accent color, geometric solid color. Font = sans serif, label caps embedded graphics. Master = ① The unique geometric master diagram (concentric circles/triangles/matrix) carries all concepts ② Arrows from inside to outside ③ Comparison cases. Logo = single geometric master image, nested concentric circles/triangles, uppercase label, one image carries the concept
+- HTML implementation: Concentric circles use border-radius: 50% nested div or SVG circle; triangles use clip-path/SVG polygon; arrow SVG marker; label absolute positioning is attached to the graphic. Pure geometry, perfectly restored by HTML
+- Font: Manrope/Futura series (Jost open source alternative) geometric feel
+
+**Sparkline narrative waveform / Narrative Sparkline (Duarte style)** `Neutral·Restore 91%`
+- Reference: Nancy Duarte's "Resonate" Sparkline Narrative Map, Al Gore's "An Inconvenient Truth", Duarte Inc. Data Storytelling
+- Adaptation: presentation structure design, change narrative, before/after comparison, data story arc
+-Visual DNA: color matching = dark background or white background + brand orange to emphasize turning points + gray contrast. Font = sans serif, annotation point. Master = ① Oscillating waveform line across the full screen ② Text mark points on the waveform ③ Juxtaposition of upper and lower control waveforms ④ A single data line hanging on a black background ⑤ Gradually revealed. Logo=crossing waveform line, waveform label point, orange transition, control waveform, curve climbing out of the screen
+- HTML implementation: use inline SVG path (smooth Bezier) for waveform lines; use SVG circle+text to position label points; compare the upper and lower paths of the waveform; use CSS animation stroke-dashoffset for reveal. Pure SVG drawing without material
+- Font: Inter + Number Geist Mono
+
+
+#### Quiet faction
+
+**Assertion-Evidence / Tufte Information Design** `Quiet·Restore 93%`
+- Reference: Michael Alley Assertion-Evidence (Penn State Evidence), McKinsey/BCG action-title, Edward Tufte data ink ratio, Barbara Minto pyramid principle
+- Adaptation: academic/engineering reports, data-critical consultation pages, policy research reports, technical reviews
+- Visual DNA: Color matching = white/very light gray background + black text + single restrained accent color (dark blue/brick red). Font = whole sentence title (not noun phrase), there is a picture under the title, and the text label is embedded in the picture. Master = ① Entire sentence action-title ② Title order picture evidence ③ Zero bullet. Flags = full sentence title, single image evidence, embedded annotation, zero chartjunk, high data to ink ratio
+- HTML implementation: the entire title depends on the layout level; the chart uses pure CSS/inline SVG to draw minimalist polyline scatter points (remove the grid lines and legend, and mark the text directly next to the data point); zero decoration. Tufte's restraint is HTML's strength
+- Font: Source Serif / Lora title + Inter text (dual font reading level)
+
+**Institutional Swiss Minimal** `Quiet·Restore 96%`
+- Reference: Sequoia official 10-page pitch template, Airbnb 2009 seed round deck, Müller-Brockmann grid, Massimo Vignelli
+- Adaptation: investment roadshows, standard business proposals, problem-solution narratives, brand de-decoration proposals
+- Visual DNA: Color matching = pure white background + black and gray text + single brand accent color (Airbnb coral red #FF5A3C/neutral blue). Font = Helvetica is sans serif, the title is one sentence in medium size and bold, and the text is short and has large spacing. Master = ① Centered logo + slogan ② One sentence title at the top + 3 columns of contrast below (Problem/Solution three points) ③ TAM large number layering ④ 2×2 competitive product matrix. Logo = top title strip, three-column contrast, monochrome accent, 2×2 matrix
+- HTML implementation: Flexbox three-column confrontation; 2×2 matrix pure CSS Grid+border drawing; TAM layering using nested divs or concentric squares; one information per page. Almost pure typography grid, ideal for HTML
+- Font: Inter/Helvetica Now replaces Helvetica; main text Inter
+
+**Magazine Editorial Longform** `Quiet·Restore 95%`
+- Reference: Stripe Annual Letter ($1.9T), Amazon six-page narrative memo, Benedict Evans "X eats the world", Stripe Press
+- Suitable for: annual letters/review narratives, in-depth thought articles, internal updates, research and report-type reading materials
+-Visual DNA: color matching = milk white/off-white base (#FBFAF8) + dark ink lettering + brand color finishing touch (Stripe purple #635BFF). Font = serif or high-quality sans serif, prose paragraphs + inline data cards, oversized display numbers interspersed. Master = ① Masthead headline ② Multi-column prose + inline indicator card ③ Super large number paragraph anchor. Signs = publication reading rhythm, inline data cards, restrained white space, prose rather than bullet
+- HTML implementation: multi-column column-count or Grid; inline data card float/inline-block embedded text; serif text max-width controls line width 65ch; super large numbers interspersed. Pure typesetting, zero material
+- Font: Newsreader / Source Serif text + Inter auxiliary; digital tabular
+
+**Humanist Rounded Cards (Khan style)** `Quiet·Restore 80%`
+- References: Khan Academy Wonder Blocks Design System, Source Serif Pro, Forest Green Branding, Friendly Humanism
+- Adaptation: educational products, affinity courseware, charity/non-profit deck, warm brand proposals
+-Visual DNA: color matching = forest green #14BF96/#0A5C4B + off-white base + warm color auxiliary, soft and not dazzling. Font = Source Serif serif title (humanistic style) + sans serif body text. Master = ① Rounded corner card component set ② Serif title + friendly text ③ Real photography position (downgraded to green geometry/round character block). Logo = forest green, serif title, large rounded corner card, humanistic warmth, imperfect and friendly texture
+- HTML implementation: large rounded border-radius card + soft box-shadow; serif title font-family; warm beige white background. Real teacher and student photography, which does not have AI-enabled pictures, is downgraded to green geometric illustration blocks/large rounded solid color placeholders + emoji characters. The restoration degree of missing photos is reduced by about 18%.
+- Font: Source Serif 4 title + Nunito Sans / Inter text (Nunito roundness echoes humanities)
+
+**Dense Research Report (Meeker style)** `Quiet·Restore 92%`
+- Reference: Mary Meeker "Internet Trends" (BOND), CB Insights "State of AI", McKinsey Global Institute "Year in Charts", FT/Bloomberg data news
+- Adaptation: trend research reports, industry data reviews, intensive data reports, market maps
+-Visual DNA: Color matching = white background + brand color (BOND/CB Insights bright blue #0066FF) stepped monochrome highlight and the rest gray, with almost zero white space. Font = concluding sentence title, 1 figure density per page, minimal source footnotes. Master = ① Conclusion sentence title + full page single image ② logo grid market map ③ large digital KPI card ④ dense multi-image grid + footnotes. Logo = concluding sentence title, zero white space research report feel, monochrome ladder highlighting, logo market map, source footnote specifications
+- HTML implementation: dense charts are all drawn with pure CSS/inline SVG (column/line/stacked/scattered points); logo market map uses Grid+text/SVG placeholder; KPI card CSS; footnotes with small fonts. Extreme information density is what HTML is good at, zero material
+- Font:Inter + IBM Plex Sans + digital tabular Geist Mono
+
+**Pure text manifesto memo / All-Text Manifesto (Netflix/Amazon style)** `Quiet·Restore 97%`
+- References: Netflix Culture Deck (2009, 125 pages), Amazon six-page narrative memo (Bezos), Tufte’s anti-PowerPoint proposition, Matthew Carter reading-level typography
+- Adaptation: Cultural declaration, value promotion, in-depth memo, anti-PPT pure document presentation
+-Visual DNA: Color matching = pure white or pure black background + a single accent color (Netflix red #E50914) as the only highlight, extremely restrained. Font = reading-level typography, one opinion statement per page/pure prose, zero bullet, and zero pictures. Master version = ① full bottom + golden assertions ② colloquial and candid paragraphs ③ institutional nouns highlighted (Keeper Test) ④ six pages of prose + appendix table. Logo = pure text, one opinion per page, zero pictures and zero bullets, single-color highlighted golden sentences, frank spoken language, silent-read document feel
+- HTML implementation: pure typesetting: golden sentences are left-aligned with large characters clamp(); prose max-width controls line width; the only emphasis color span highlights key phrases; appendices use a minimalist table. Zero material, zero pictures, pure text is the most stable restoration of HTML
+- Font: Newsreader / Source Serif (reading level) or Inter (declaration style); the title can be Archivo super bold
+
+
+---
+
+## ⚠️ Dedicated style for AI image generation (only recommended when the user is confirmed to have the ability to generate images, default is not optional)
+
+The souls of the following styles can only make severely degraded mocks under **dynamically generated visuals/3D/particles/movie-level light and shadow/hand-drawn illustrations** and pure HTML/CSS raw images, and are **removed from the default recommendation pool**. Only when the user clearly has the ability to generate images (using `huashu-gpt-image`) can he be considered a candidate:
+
+| Style | Soul | Why HTML can’t do it |
 |------|------|------------------|
-| Active Theory（WebGL 粒子） | 3D 粒子系统/实时渲染 | 纯 CSS 无法 |
-| Field.io（生成艺术） | 算法生成图形 | 静态 SVG 只能做僵化简化版 |
-| Resn（插画交互） | 角色插画+游戏化 | 依赖手绘素材 |
-| Zach Lieberman（实时生成） | creative coding 笔触 | 依赖实时生成 |
-| Raven Kwok（分形参数） | 递归分形 | CSS 做不出复杂度 |
-| Ash Thorp（电影光影） | 电影级体积光/概念美术 | CSS 光影是劣化 |
-| Territory Studio（FUI 全息） | 科幻全息界面 | 依赖大量发光层叠素材 |
-| Neo Shen（水墨晕染） | 水墨有机晕染 | CSS 渐变≠水墨 |
-| Sagmeister & Walsh（色彩爆发） | 手作实物+实验排版 | 撞色骨架可做（已并入网页「Memphis/孟菲斯」与 PPT「单色撞色海报」），手作质感做不了 |
+| Active Theory (WebGL particles) | 3D particle systems/real-time rendering | Not possible with pure CSS |
+| Field.io (Generative Art) | Algorithm-generated graphics | Static SVG can only be a rigid and simplified version |
+| Resn (illustration interaction) | Character illustration + gamification | Rely on hand-painted materials |
+| Zach Lieberman (real-time generation) | creative coding strokes | rely on real-time generation |
+| Raven Kwok (fractal parameters) | Recursive fractals | CSS cannot do complexity |
+| Ash Thorp (movie light and shadow) | Film-level volumetric light/concept art | CSS light and shadow is degradation |
+| Territory Studio (FUI holographic) | Sci-fi holographic interface | Relying on a large number of luminous layered materials |
+| Neo Shen (ink blending) | Ink organic blending | CSS gradient ≠ ink |
+| Sagmeister & Walsh (Color Explosion) | Hand-made objects + experimental typesetting | Contrast color skeletons can be made (already incorporated into the website "Memphis/Memphis" and PPT "Single Color Contrast Poster"), but hand-made textures cannot be made |
 
-> 这些款不是「不好」，是「载体不对」——它们的原生载体是 AI 直出图，不是浏览器 DOM。
-
----
-
-## 默认审美禁区（用户可按自己品牌 override）
-
-- ❌ **GitHub-dark 偷懒解**：均匀深蓝底（#0D1117）+ 通用青/紫霓虹 glow——只禁这一种烂大街组合，不是「暗色一律禁」
-- ✅ **不在禁区**：电影级戏剧光影、暖色赛博（Ash Thorp 橙/青）、运动诗学暗场叙事——有作者意图的暗色保留（本库「Linear 暗色发光」「黑底数字剧场」「CS50 糖果舞台」都是合法暗色）
-- ❌ 激进紫渐变万能公式、emoji 当图标、圆角卡片+左彩 border accent（除非品牌本身用）
-- ❌ 封面图加个人署名/水印
+> These models are not "bad", but "the carrier is wrong" - their native carrier is AI direct graphics, not the browser DOM.
 
 ---
 
-## 有生图能力时的提示词心法（Mood, Not Layout）
+## Default aesthetic restricted area (users can override according to their own brand)
 
-> 仅当走 AI 生图路径时适用；HTML 路径直接按上面各风格的「HTML 实现」写代码。
+- ❌ **GitHub-dark lazy solution**: uniform dark blue background (#0D1117) + universal cyan/purple neon glow - only this bad combination is banned, not "all dark colors are banned"
+- ✅ **Not in the restricted area**: Film-level dramatic light and shadow, warm color cyber (Ash Thorp orange/green), movement poetry dark scene narrative - dark colors reserved with the author's intention (this library "Linear Dark Glow", "Black Bottom Digital Theater" and "CS50 Candy Stage" are all legal dark colors)
+- ❌ Radical purple gradient universal formula, emoji as icon, rounded corner card + left color border accent (unless used by the brand itself)
+- ❌ Add personal signature/watermark to the cover image
 
-短提示词 > 长提示词。描述情绪和内容，比堆 30 行布局细节有效。
+---
 
-| 杀死多样性的写法 | 激发创造力的写法 |
+## Tip words when you have the ability to draw pictures (Mood, Not Layout)
+
+> Only applicable when taking the AI ​​mapping path; for the HTML path, write code directly according to the "HTML implementation" of each style above.
+
+Short cue words > Long cue words. Describing mood and content is more effective than stacking 30 lines of layout details.
+
+| Writing that kills diversity | Writing that inspires creativity |
 |----------------|----------------|
-| 指定颜色比例（60%/25%/15%） | 描述情绪（"warm like Sunday morning"） |
-| 规定布局位置 | 引用具体美学（"Pentagram editorial feel"） |
-| 列出所有视觉元素 | 描述观众应该感受到什么 |
+| Specify the color ratio (60%/25%/15%) | Describe the mood ("warm like Sunday morning") |
+| Specify layout placement | Reference specific aesthetics ("Pentagram editorial feel") |
+| List all visual elements | Describe what the audience should feel |
 
-完整 AI 生图方法论 → `huashu-gpt-image` skill。
+Complete AI image generation methodology → `huashu-gpt-image` skill.
 
 ---
 
-**版本**：v3.0（2026-06 全面重构为 HTML 原生 40 种库）
-**适用**：网页/PPT/PDF/信息图/封面/App 等所有视觉设计的 default HTML 路径
+**Version**: v3.0 (2026-06 Comprehensive reconstruction into HTML native 40 libraries)
+**Applicable**: default HTML path for all visual designs such as web pages/PPT/PDF/infographics/covers/Apps

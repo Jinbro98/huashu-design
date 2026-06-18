@@ -1,175 +1,175 @@
-# Launch Film 工作流：先写万字 director's notes，再做动画
+# Launch Film workflow: first write 10,000 words of director's notes, then animate
 
-> 高规格视觉作品（≥ 20 秒、含品牌叙事、含 slogan reveal、可能上 X / 公众号 / B 站推广）的标准工作流。
+> Standard workflow for high-standard visual works (≥ 20 seconds, including brand narrative, including slogan reveal, and may be promoted on X / WeChat Official Account / Bilibili).
 >
-> 触发条件：任务是「产品升级宣传片 / 品牌 launch film / launch trailer / superbowl-tier ad / brand campaign / hero animation video」，且**用户对质量有明确预期**（如「超级碗品质感」「10x 细节」「Apple 级别」）。
+> Trigger conditions: The task is "product upgrade promotional video / brand launch film / launch trailer / superbowl-tier ad / brand campaign / hero animation video", and **users have clear expectations for quality** (such as "Super Bowl quality", "10x details", "Apple level").
 >
-> 反触发：不要在「快速做个动画 demo」「简单 motion graphic」「单个图标动画」时用这条流程——会过度工程化。
+> Anti-trigger: Don’t use this process when “making a quick animation demo”, “simple motion graphic”, or “single icon animation” - it will be over-engineered.
 
 ---
 
-## 1. 为什么先写 director's notes
+## 1. Why write director's notes first?
 
-实战教训（2026-05-11 huashu-md-html v2.0 项目）：
+Practical lessons (2026-05-11 huashu-md-html v2.0 project):
 
-第一轮直接动手写 HTML，产出的是「程序员视角的动画」——每个 capability 平均用力、节奏匀速、slogan 撞在一起、缺少叙事弧。
-第二轮接到用户「停下，先按苹果导演视角写 1 万字分镜脚本」的指令，写了 v5-director-notes.md（11500 字、13 镜 shot-by-shot spec），然后按脚本实施——一次过、每帧 pause 都耐看、节奏起伏有 climax。
+In the first round, I directly wrote HTML by hand, and the result was an "animation from a programmer's perspective" - ​​each capability used average effort, the rhythm was uniform, the slogans collided with each other, and there was no narrative arc.
+In the second round, I received the user’s instruction to “stop and write a 10,000-word storyboard script from the Apple director’s perspective.” I wrote v5-director-notes.md (11,500 words, 13-shot shot-by-shot spec), and then implemented it according to the script—one pass, each frame pause is watchable, and the rhythm has ups and downs.
 
-**核心差异**：写脚本是 think，写 HTML 是 execute。先 think 透了，execute 就是机械翻译。先 execute，每个 shot 都是临场决策，必然乱。
+**Core Difference**: Think is used to write scripts, and execute is used to write HTML. First think clearly, execute is mechanical translation. Execute first. Each shot is an on-the-spot decision, which is bound to be messy.
 
-写 director's notes 不是「装」，是把所有视觉决策**在动手之前**沉淀成文档——每一镜都已经在脑里 visualize 过、reasoning 过、和上下文 trace 过。HTML 实施时不需要再做创意决策，只需要忠实翻译。
-
----
-
-## 2. 触发判断（先问自己 3 个问题）
-
-启动 launch film 工作流前问：
-
-1. **这支片承担品牌叙事吗？**（有 thesis / slogan reveal / 升级仪式感）—— 是 → 走 director's notes 流程
-2. **观众会暂停看吗？**（可能截图、做 X 海报、做封面、慢速 review）—— 是 → 每帧要耐看
-3. **客户/用户有「我希望像 XXX 那样」的参照？**（Apple / Anthropic / Nike / Penguin / 某导演）—— 是 → 必须明确视觉语境
-
-任一为「是」就走流程。三个都「否」就跳过，直接用 [animations.md](animations.md) 的标准流程。
+Writing director's notes is not "pretending", it is precipitating all visual decisions into documents before taking action - every shot has been visualized, reasoned, and contextually traced in the mind. HTML implementation no longer requires creative decisions, just faithful translation.
 
 ---
 
-## 3. Director's Notes 的 5 大部分结构
+## 2. Trigger judgment (ask yourself 3 questions first)
 
-万字（10000-12000 字中文 / 等量英文）director's notes 必须包含这 5 大部分。**任一部分缺失都属于不完整，质量会受影响**。
+Before starting the launch film workflow, ask:
 
-### Part I · Director's Statement（创作论，约 1500-2000 字）
+1. **Does this film carry a brand narrative? ** (with thesis / slogan reveal / sense of upgrade ceremony) - Yes → follow the director's notes process
+2. **Will the audience pause watching? ** (Maybe take screenshots, make X poster, make cover, slow review) - Yes → Each frame should be watchable
+3. **Does the customer/user have a reference of "I want to be like XXX"? ** (Apple / Anthropic / Nike / Penguin / Director) - Yes → Visual context must be clear
 
-回答 5 个问题：
+If any one is "Yes", go through the process. If all three are "no", skip it and use the standard process of [animations.md](animations.md) directly.
 
-1. **这部片不是什么？**（明确排除——如「这不是功能介绍片」「不是 demo」）
-2. **核心 thesis 一行**——观众看完只记一句话是哪句？
-3. **跟谁的语境对话？**——列出 5-8 个视觉参照（导演 / 设计师 / 品牌 / 摄影师 / 作品名 + 年份），说明每个参照学了什么
-4. **三类观众画像 + 对每类的承诺**：主受众 / 次受众 / 外受众，各对应一段
-5. **节奏哲学**——慢拍 / 加速 / 顶峰 / 缓收的曲线说明 + emotional climax 在第几秒（**不一定是最后一秒**）
+---
 
-最后加一段 anti-slop checklist：**这部片不做的事**（具体列出，不模糊）。
+## 3. 5 Most Structure of Director's Notes
 
-### Part II · Visual System（视觉系统全谱，约 1500-2500 字）
+The director's notes must contain these 5 parts. **If any part is missing, it is incomplete and the quality will be affected**.
 
-这是工程化的视觉 spec。完整后任何执行者拿到都能产出一致的视觉。
+### Part I · Director's Statement (On Creation, about 1500-2000 words)
 
-必含子节：
+Answer 5 questions:
 
-- **完整色板**：至少 8-10 色，每色含 HEX + 功能定义 + 占画面比例上限
-- **字体系统**：至少 6 个字号层级，每层级含字体名 + weight + size + letter-spacing + 用途
-- **网格系统**：画布尺寸 + 外边距 + column grid + baseline grid + 关键安全区 + 黄金分割锚点
-- **动画系统**：easing 库（4 条以内）+ duration 字典 + stagger 法则 + scene 过渡规则
-- **Chrome 元素**：贯穿全片的小细节（counter / chip / ticker / watermark / texture），每个含位置 + 入退场时机
-- **音频系统**：BGM 30 秒走向曲线（分层）+ SFX 字典（10+ cues 含时间码 + 音量 + 频段隔离）
-- **反 AI slop checklist**：per-shot 自检表（10-15 项）
+1. **What is this movie not? ** (explicitly excluded - such as "This is not a feature introduction film" "It is not a demo")
+2. **Core thesis line** - What is the one sentence that the audience will only remember after reading it?
+3. **Whose context are you talking to? **——List 5-8 visual references (director/designer/brand/photographer/title of work + year) and explain what was learned from each reference
+4. **Three types of audience portraits + commitment to each type**: primary audience / secondary audience / external audience, each corresponding to a paragraph
+5. **Rhythm Philosophy**——Slow beat/accelerate/peak/slow down curve description + emotional climax at which second (**not necessarily the last second**)
 
-铁律：**所有视觉决策都从 Visual System 推导，不要在 shot list 里临时发明新值**。
+Finally, add an anti-slop checklist: **Things this film does not do** (be specific, not vague).
 
-### Part III · Story Arc（故事弧，约 500-800 字）
+### Part II · Visual System (full spectrum of visual system, about 1500-2500 words)
 
-三幕结构 + 情绪曲线：
+This is an engineered visual spec. After it is complete, any executor who gets it can produce consistent vision.
 
-- **Act I · SETUP**（0 → 第 1/5 时长，e.g. 0-6s for 30s）：观众进入，问题被提出
-- **Act II · ESCALATION**（中间 2/3）：答案展开，主题铺陈
-- **Act III · PAYOFF**（最后 1/4）：升华、slogan reveal、品牌印章
+Required subsections:
 
-含 ASCII 情绪曲线图 + emotional climax 时刻标记。
+- **Complete color palette**: at least 8-10 colors, each color contains HEX + function definition + upper limit of screen ratio
+- **Font system**: at least 6 font size levels, each level includes font name + weight + size + letter-spacing + purpose
+- **Grid system**: canvas size + margin + column grid + baseline grid + key safety area + golden section anchor point
+- **Animation system**: easing library (within 4 items) + duration dictionary + stagger rule + scene transition rule
+- **Chrome elements**: small details throughout the film (counter / chip / ticker / watermark / texture), each including position + entry and exit timing
+- **Audio System**: BGM 30-second trend curve (layered) + SFX dictionary (10+ cues including timecode + volume + band isolation)
+- **anti-AI slop checklist**: per-shot self-check list (10-15 items)
 
-**关键决策**：climax 不一定在末尾。30s 片子 climax 通常在 22-25s（不是 29s）——最后几秒是 resolution / decay，不是 peak。这条规则违反必然让作品「虎头蛇尾」。
+Iron rule: **All visual decisions are derived from the Visual System, don't improvise new values ​​in the shot list**.
 
-### Part IV · Shot-by-Shot Storyboard（分镜脚本，约 5000-7000 字 · 占 60% 篇幅）
+### Part III · Story Arc (story arc, about 500-800 words)
 
-每镜含 10 个字段（缺一不可）：
+Three-act structure + emotional curve:
+
+- **Act I · SETUP** (0 → 1/5th duration, e.g. 0-6s for 30s): audience enters, questions are asked
+- **Act II · ESCALATION** (Middle 2/3): The answer is expanded and the theme is laid out
+- **Act III · PAYOFF** (last 1/4): sublimation, slogan reveal, brand seal
+
+Contains ASCII emotion graph + emotional climax moment markers.
+
+**Key Decision**: climatex doesn’t have to be at the end. The climax of a 30s movie is usually between 22-25s (not 29s) - the last few seconds are resolution/decay, not peak. Violation of this rule will inevitably make the work "anticlimactic".
+
+### Part IV · Shot-by-Shot Storyboard (storyboard, about 5000-7000 words · 60% of the length)
+
+Each mirror contains 10 fields (all are indispensable):
 
 ```
 SHOT NN · NAME
-[TIMECODE]    起止时间 + 时长
-[FUNCTION]    这一镜在故事弧中的功能（一句话）
-[VISUAL]      画面构图 + 元素位置 + 运动方向
-[TYPE]        排版 spec（字体 / 字号 / 字距 / 行高 / 颜色 / 对齐）
-[ANIM]        每元素 in/out 时机 + easing + duration + stagger + delay
-[AUDIO]       music beat + SFX cue（每镜对应 BGM 节奏 + 必含 SFX 时间表）
-[CHROME]      四角元素状态（哪些 chrome 在 / 哪些 fade in/out / 哪个 pulse）
-[ANTI-SLOP]   这一镜通过了哪些自检项 + 有什么 120% 细节签名
-[WHY]         承接上一镜的逻辑 + 推进下一镜的钩子
+[TIMECODE] start and end time + duration
+[FUNCTION] The function of this mirror in the story arc (one sentence)
+[VISUAL] Screen composition + element position + movement direction
+[TYPE] Typesetting spec (font/font size/kerning/line height/color/alignment)
+[ANIM] Per-element in/out timing + easing + duration + stagger + delay
+[AUDIO] music beat + SFX cue (each shot corresponds to BGM rhythm + must include SFX schedule)
+[CHROME] Four corner element status (which chrome is in/which fade in/out/which pulse)
+[ANTI-SLOP] What self-inspections did this lens pass + what 120% detailed signature
+[WHY] Take over the logic of the previous shot + the hook to advance the next shot
 ```
 
-**字段平均 30-80 字 → 每镜 400-700 字 → 12-15 镜 → 5000-7000 字**。
+**Field average 30-80 words → 400-700 words per mirror → 12-15 mirrors → 5000-7000 words**.
 
-实战经验：写完 storyboard 后**自己读一遍**——任意一镜删掉，整支片是否还成立？如果可以删，那镜就是多余的，删掉。
+Practical experience: After writing the storyboard, **read it yourself** - if any scene is deleted, will the entire film still stand? If it can be deleted, then the mirror is redundant and should be deleted.
 
-### Part V · Production Manifest（制作清单，约 800-1200 字）
+### Part V · Production Manifest (production list, about 800-1200 words)
 
-工程交付清单：
+Project delivery list:
 
-- 字体加载 URL（含 preconnect）
-- CSS 变量（直接可粘贴）
-- BGM 来源选择标准 + Suno/Udio prompt 关键词 + 备选库
-- SFX 字典（按时间码逐 cue 列出文件路径 + 音量）
-- **关键帧验证计划**：12-15 张 pause-and-check 关键帧时间码，每帧验证项列出（fonts / positions / chrome state）
-- 录制参数（fps / codec / bitrate / preset）
-- ffmpeg 音频混合命令（含 audio stream 验证）
-- 交付物清单（mp4 / mp4-60fps / gif / poster.png / silent.mp4 / shot-list.csv）
-- 全链路时间估算（小时级精度）
-
----
-
-## 4. 写 director's notes 的 5 条建议
-
-**4.1 用导演的口吻，不用 PM 的口吻**
-
-❌「This shot displays the product features.」
-✅「This is the hero shot — if the audience pauses anywhere, I want it to be here.」
-
-导演笔记是给执行者读的，但也是给未来的自己读的。第一人称 + judgment 表达比 description 表达留更多决策线索。
-
-**4.2 引用具体作品（含年份），不只是流派名**
-
-❌「Apple-inspired」
-✅「Apple 'Designed by Apple in California' (2013, dir. Mark Romanek) — 学的是慢拍 + 衬线 + 大白底」
-
-引用具体作品的好处：(a) 任何观众都能上网搜到对照 (b) 你逼自己想清楚学的是什么具体技术 (c) 防止「灵感模糊」。
-
-**4.3 每个决策都 trace 回 first principle**
-
-整支片有一句 first principle（如 "Markdown is the new typewriter."）。每个具体决策——配色 / 字体 / 节奏 / chrome——都要能 trace 回这句话。
-
-trace 不上的决策就是装饰，删掉。
-
-**4.4 写 anti-slop 比写 do-this 更重要**
-
-「这部片不做的事」清单（紫渐变 / emoji / Lorem ipsum / Inter display / SVG 画人物 / 圆角卡 + 左 border accent）比「这部片做的事」清单更能保护质量。
-
-正向决策无穷多，负向 checklist 是有限的——但负向 checklist 一旦违反就是 slop。
-
-**4.5 写完不要立即实施——隔 30 分钟再读一遍**
-
-写作时大脑在「生产模式」，看不见 inconsistency。隔 30 分钟读自己写的 storyboard，会发现：
-- 某两镜功能重复（删一个）
-- 某镜叙事跳跃太大（加过渡）
-- emotional climax 位置错（移动）
-- chrome 元素和 shot 数量不匹配（重新对齐）
-
-这 30 分钟省下的是后期 2 小时的返工。
+- Font loading URL (including preconnect)
+- CSS variables (can be pasted directly)
+- BGM source selection criteria + Suno/Udio prompt keywords + alternative libraries
+- SFX Dictionary (lists file paths cue by timecode + volume)
+- **Keyframe Verification Plan**: 12-15 pause-and-check keyframe timecodes, verification items listed for each frame (fonts / positions / chrome state)
+- Recording parameters (fps/codec/bitrate/preset)
+- ffmpeg audio mixing command (including audio stream verification)
+- Deliverables list (MP4/MP4-60fps/GIF/poster.png/silent.MP4/shot-list.csv)
+- Full link time estimation (hour-level accuracy)
 
 ---
 
-## 5. Director's Notes → HTML 实施流程
+## 4. 5 tips for writing director’s notes
 
-写完 director's notes 后，HTML 实施步骤：
+**4.1 Use the director’s tone, not the PM’s tone**
 
-1. **复用 starter components**（`assets/animations.jsx` 的 Stage/Sprite/Easing/interpolate）— 不重新发明
-2. **CSS 变量直接从 Visual System Part II 粘贴** — 不在 HTML 里临时改色
-3. **按 Sprite start/end 时间轴对照 Part IV 时间码** — 不擅自加镜
-4. **chrome 元素抽成独立组件**（ChromeA/B/C/D），用 useTime() 驱动状态切换
-5. **destination cards 内容必须真实可读**（不是 fake bar lines）—— 这是 v5 项目里最被反复提及的 120% 细节签名
-6. **每写完一镜就立即截关键帧验证**（用 `?t=NN` URL 参数 + Playwright），不要写完全片再统一验证
+❌"This shot displays the product features."
+✅"This is the hero shot — if the audience pauses anywhere, I want it to be here."
+
+Director's notes are meant for the executive, but they are also meant for future selves. First person + judgment expressions leave more clues for decision-making than description expressions.
+
+**4.2 Cite specific works (including year), not just genre names**
+
+❌"Apple-inspired"
+✅"Apple 'Designed by Apple in California' (2013, dir. Mark Romanek) — I learned slow beat + serif + white background”
+
+The advantages of citing specific works: (a) Any audience can search for comparisons online (b) You force yourself to think clearly about the specific technology you are learning (c) Prevent "blurred inspiration".
+
+**4.3 Each decision is traced back to the first principle**
+
+The entire film has a first principle (such as "Markdown is the new typewriter."). Every specific decision—color/font/tempo/chrome—should be able to trace back to this sentence.
+
+The decision that is not traceable is to decorate and delete it.
+
+**4.4 It is more important to write anti-slop than do-this**
+
+A list of "things this movie doesn't do" (purple gradient / emoji / Lorem ipsum / Inter display / SVG drawing characters / rounded corners card + left border accent) is a better way to protect quality than a list of "things this movie does".
+
+There are infinite positive decisions, but the negative checklist is limited—but once the negative checklist is violated, it is a slop.
+
+**4.5 Don’t implement it immediately after writing – read it again after 30 minutes**
+
+When writing, the brain is in "production mode" and inconsistency is not visible. If you read the storyboard you wrote every 30 minutes, you will find:
+- Some two mirrors have duplicate functions (delete one)
+- The narrative jumps too much in a certain scene (add transition)
+- emotional climax wrong position (moved)
+- The number of chrome elements and shots does not match (realignment)
+
+What these 30 minutes save is 2 hours of rework later.
 
 ---
 
-## 6. 关键帧验证流程
+## 5. Director's Notes → HTML implementation process
 
-URL 参数实现（必须在 Stage 组件加）：
+After writing director's notes, HTML implementation steps:
+
+1. **Reuse starter components** (Stage/Sprite/Easing/interpolate of `assets/animations.jsx`) — don’t reinvent
+2. **CSS variables are pasted directly from Visual System Part II** — no temporary color changes in HTML
+3. **Press Sprite start/end timeline to compare with Part IV timecode** — Do not add lenses without permission
+4. **Chrome elements are extracted into independent components** (ChromeA/B/C/D), and use useTime() to drive state switching
+5. **destination cards content must be real and readable** (not fake bar lines) - This is the most repeatedly mentioned 120% detailed signature in the v5 project
+6. **Every time you finish writing a scene, immediately capture the keyframes for verification** (use `?t=NN` URL parameter + Playwright). Do not write the entire film and then verify it all together.
+
+---
+
+## 6. Keyframe verification process
+
+URL parameter implementation (must be added in Stage component):
 
 ```js
 const urlMatch = window.location.search.match(/[?&]t=([\d.]+)/);
@@ -178,9 +178,9 @@ const [time, setTime] = useState(frozenTime != null ? frozenTime : 0);
 const [playing, setPlaying] = useState(frozenTime == null);
 ```
 
-→ 这样 `file:///path/animation.html?t=14.5` 直接 freeze 在 14.5 秒。
+→ This way `file:///path/animation.html?t=14.5` will directly freeze at 14.5 seconds.
 
-批量截图：
+Batch screenshots:
 
 ```bash
 for t in 0.5 2.5 4.9 7.0 10.5 13.5 16.5 19.0 21.5 23.4 25.5 28.0 29.9; do
@@ -192,102 +192,102 @@ for t in 0.5 2.5 4.9 7.0 10.5 13.5 16.5 19.0 21.5 23.4 25.5 28.0 29.9; do
 done
 ```
 
-每张截图必须验证：
-- [ ] 元素无溢出 1920×1080 canvas
-- [ ] 字距、行高 visually correct（不挤、不散）
-- [ ] 关键 typography 细节（句点颜色 / em-dash / italic / small caps）可识别
-- [ ] chrome 元素位置 + 状态正确
-- [ ] 反 AI slop checklist 通过
-- [ ] 「pause 时值得看」的 120% 细节存在
+Each screenshot must verify:
+- [ ] element without overflow 1920×1080 canvas
+- [ ] Word spacing and line height visually correct (not crowded or scattered)
+- [ ] key typography details (period color / em-dash / italic / small caps) identifiable
+- [ ] chrome element position + status correct
+- [ ] anti-AI slop checklist passed
+- [ ] 120% of the details of "Worth watching during pause" exist
 
 ---
 
-## 7. 多视角并行策略（advanced）
+## 7. Multi-perspective parallel strategy (advanced)
 
-复杂项目（如 launch film 选不出方向 / 想看多个美学差异 / 客户没拍板风格）可以**启动多个 subagent 并行做不同导演视角的版本**。
+For complex projects (such as a launch film where you can't choose a direction/want to see multiple aesthetic differences/the client doesn't agree on the style), you can start multiple subagents in parallel to create versions from different director's perspectives.
 
-实战配置（2026-05-11 huashu-md-html 项目，并行 6 个版本）：
+Actual configuration (2026-05-11 huashu-md-html project, 6 versions in parallel):
 
 ```
-v5  · 基线（Anthropic / Penguin Classics 出版社品位）
-v5a · Wes Anderson（对称 + 复古 + 章节卡片）
-v5b · Saul Bass（剪纸 + 60s 大字 + 几何切割）
-v5c · 王家卫（中文衬线 + 慢动作 + 怀旧）
-v5d · Massimo Vignelli（现代主义 grid + 红黑）
-v5e · 原研哉 Kenya Hara（极简日式 + 留白）
-v5f · 草间彌生 Yayoi Kusama（圆点 + 重复 + 单一强色）
+v5 · Baseline (Anthropic / Penguin Classics Press taste)
+v5a · Wes Anderson (Symmetry + Vintage + Chapter Cards)
+v5b · Saul Bass (paper cutting + 60s large characters + geometric cutting)
+v5c · Wong Kar-Wai (Chinese serif + slow motion + nostalgia)
+v5d · Massimo Vignelli (modernism grid + red and black)
+v5e · Kenya Hara Kenya Hara (minimalist Japanese style + blank space)
+v5f · Yayoi Kusama (polka dots + repetition + single strong color)
 ```
 
-每个 subagent 接到独立 brief：
-- 项目背景（同一份）
-- 必读参考（同一份 v5-director-notes.md 作为方法论模板）
-- **指定的艺术家 DNA**（色板 / 字体 / 视觉语言 / 节奏 / 招牌元素 / 反 slop 强化版本，每条 30-50 字）
-- 统一任务清单（director-notes.md + animation.html + keyframes/ + README.md）
-- 统一约束（30s / 1920×1080 / file:// / Google Fonts）
+Each subagent receives an independent brief:
+- Project background (same copy)
+- Must-read reference (same v5-director-notes.md as methodology template)
+- **Specified Artist DNA** (color palette/font/visual language/rhythm/signature elements/anti-slop enhanced version, 30-50 words each)
+- Unified task list (director-notes.md + animation.html + keyframes/ + README.md)
+- Uniform constraints (30s/1920×1080/file:///Google Fonts)
 
-并行启动 + 后台运行，约 30-60 分钟出 6 套完整版本。
+Parallel startup + background running, 6 complete versions will be produced in about 30-60 minutes.
 
-完成后审校对比：
-1. 各版本核心美学决策表
-2. 关键帧并排对比（每版同时刻一帧）
-3. 投票：哪个最贴合用户的真实需求
+Review and compare after completion:
+1. Core aesthetic decision-making table for each version
+2. Side-by-side comparison of key frames (one frame in each version at the same time)
+3. Vote: Which one best meets the real needs of users?
 
-**关键**：不要让 subagent 之间相互参考——它们必须独立产出，否则就会撞到「平均值」。每个 subagent 的指令里要明说「不要重复 v5 的美学」。
+**Key**: Don't let subagents reference each other - they must produce independently, otherwise they will hit the "average". Each subagent's instructions should clearly state "Don't repeat the aesthetics of v5."
 
 ---
 
-## 8. 触发的几种典型场景
+## 8. Several typical trigger scenarios
 
-| 用户场景 | 是否触发 | 备注 |
+| User scenario | Whether to trigger | Remarks |
 |---------|---------|------|
-| 「做个 SaaS 升级宣传片」 | ✅ 触发 | 默认走完整流程 |
-| 「Apple 级别 / 超级碗品质感的视频」 | ✅ 触发 + 升级 | 强力推荐多视角并行 |
-| 「30 秒品牌 launch film」 | ✅ 触发 | |
-| 「这个项目 1 万字脚本再做动画」 | ✅ 触发 | 用户明确指明 |
-| 「简单 motion graphic，logo 转一下」 | ❌ 不触发 | 用 animations.md 标准流程 |
-| 「做个 onboarding 动画 demo」 | ❌ 不触发 | 用 animations.md |
-| 「教程视频带配音」 | ❌ 不触发 | 走 voiceover-pipeline.md |
-| 「单个 hero animation」 | ⚠️ 看复杂度 | 如果是高规格 hero，触发；普通 hero 用 hero-animation-case-study.md |
+| "Make a SaaS upgrade promotional video" | ✅ Trigger | Complete the process by default |
+| "Apple level / Super Bowl quality video" | ✅ Trigger + Upgrade | Highly recommended for multi-view parallelism |
+| "30 Seconds Brand Launch Film" | ✅ Trigger | |
+| "This project requires a 10,000-word script to be animated" | ✅ Trigger | User clearly specified |
+| "Simple motion graphic, rotate the logo" | ❌ No triggering | Use animations.md standard process |
+| "Make an onboarding animation demo" | ❌ Do not trigger | Use animations.md |
+| "Tutorial video with dubbing" | ❌ Do not trigger | Go to voiceover-pipeline.md |
+| "Single hero animation" | ⚠️ Look at the complexity | If it is a high-specification hero, trigger it; for a normal hero, use hero-animation-case-study.md |
 
 ---
 
-## 9. 参考样本
+## 9. Reference sample
 
-完整 director's notes 参考样本（self-contained，本 skill 内）：
+Complete director's notes reference sample (self-contained, included in this skill):
 
-`assets/director-notes-samples/launch-film-30s-sample.md`（约 78KB · 11500 字 · 13 镜 · 5 大部分齐全）
+`assets/director-notes-samples/launch-film-30s-sample.md` (approx. 78KB · 11500 words · 13 images · 5 mostly complete)
 
-原始项目位置（含对应实施 HTML + 关键帧）：
+Original project location (with corresponding implementation HTML + keyframes):
 
-- v5-director-notes.md（director's notes，作者本地，未随仓库分发）
-- v5-six-forms.html（HTML 实施，作者本地，未随仓库分发）
-- v5-keyframes/（关键帧验证截图，作者本地，未随仓库分发）
+- v5-director-notes.md (director's notes, local to the author, not distributed with the warehouse)
+- v5-six-forms.html (HTML implementation, local to the author, not distributed with the repository)
+- v5-keyframes/ (Keyframe verification screenshot, local to the author, not distributed with the warehouse)
 
-写新项目时强烈建议**先 Read 这份样本**，理解工作量和细节密度，再决定要不要全套走流程。
-
----
-
-## 10. 反模式（不要这样做）
-
-❌ **写 1000 字的精简版 director's notes 就动手**
-→ 精简版必然漏 Visual System 的某个子项，导致 HTML 实施时不停回头补 spec。要做就做万字级，要省就直接跳过。
-
-❌ **storyboard 只写 5-8 镜**
-→ 30 秒片至少 12-15 镜（每镜 2-3 秒）。镜少 = 节奏匀速 = 没 climax。
-
-❌ **director's notes 写完就交付，不做实施**
-→ 文档不是交付物，动画才是。文档 + 动画一起交付，文档作为「设计依据」附录。
-
-❌ **多视角并行时让 subagent 看其他版本**
-→ 各 subagent 必须独立，否则趋同。审校阶段才对比。
-
-❌ **跳过关键帧验证直接录 MP4**
-→ 必然返工。关键帧验证是最便宜的 quality gate。
-
-❌ **把动画细节决策推迟到「等我录的时候再想」**
-→ 录制阶段是机械执行，不能做创意决策。所有决策必须在 director's notes 写死。
+When writing a new project, it is strongly recommended to read this sample first, understand the workload and density of details, and then decide whether to follow the entire process.
 
 ---
 
-*最后修订：2026-05-11*
-*真实案例：huashu-md-html v2.0 launch film（v5-director-notes.md）*
+## 10. Anti-Pattern (Don’t Do This)
+
+❌ **Just write a 1000-word condensed version of director's notes**
+→ The streamlined version will inevitably miss a certain sub-item of Visual System, causing the spec to be constantly added during HTML implementation. If you want to do it, do it at the 10,000-word level. If you want to save, just skip it.
+
+❌ **storyboard only writes 5-8 mirrors**
+→ 30 second film with at least 12-15 shots (2-3 seconds per shot). Few mirrors = even rhythm = no climax.
+
+❌ **director's notes will be delivered as soon as they are written, without implementation**
+→ Documentation is not the deliverable, animation is. Documents + animations are delivered together, and the documents are included as an appendix to the "Design Basis".
+
+❌ **Let the subagent see other versions when using multiple perspectives in parallel**
+→Each subagent must be independent, otherwise it will converge. Only compare during the review stage.
+
+❌ **Skip keyframe verification and record directly to MP4**
+→ Rework is inevitable. Keyframe verification is the cheapest quality gate.
+
+❌ **Postponing decisions on animation details until “I’ll think about it later when I’m recording”**
+→ The recording stage is a mechanical execution and no creative decisions can be made. All decisions must be documented in the director's notes.
+
+---
+
+*Last revised: 2026-05-11*
+*Real case: huashu-md-html v2.0 launch film (v5-director-notes.md)*

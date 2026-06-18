@@ -1,22 +1,22 @@
 #!/usr/bin/env node
 /**
- * tts-doubao.mjs · 豆包语音 TTS（火山引擎 openspeech）
+ * tts-doubao.mjs · Doubao Voice TTS (volcano engine openpeech)
  *
- * 用法：
- *   node scripts/tts-doubao.mjs --text "你好" --out demo.mp3
+ * Usage:
+ * node scripts/tts-doubao.mjs --text "Hello" --out demo.mp3
  *   node scripts/tts-doubao.mjs --text-file script.txt --out out.mp3 --speed 1.0
  *
- * 输出：
- *   - mp3 文件写到 --out 路径
- *   - stdout 打印一行 JSON: {"path":"...","duration":12.34,"bytes":54321}
+ * Output:
+ * - mp3 files are written to the --out path
+ * - stdout prints a line of JSON: {"path":"...","duration":12.34,"bytes":54321}
  *
- * 依赖：Node 18+（自带 fetch/crypto）、ffprobe（测时长，brew install ffmpeg）
+ * Dependencies: Node 18+ (comes with fetch/crypto), ffprobe (time measurement, brew install ffmpeg)
  *
- * env（自动从 skill 根目录 .env 读取，也可走 process.env 覆盖）：
- *   DOUBAO_TTS_API_KEY     必填
- *   DOUBAO_TTS_VOICE_ID    必填（音色 id）
- *   DOUBAO_TTS_CLUSTER     默认 volcano_icl
- *   DOUBAO_TTS_ENDPOINT    默认 https://openspeech.bytedance.com/api/v1/tts
+ * env (automatically read from skill root directory .env, can also be overwritten by process.env):
+ * DOUBAO_TTS_API_KEY required
+ * DOUBAO_TTS_VOICE_ID required (voice id)
+ * DOUBAO_TTS_CLUSTER default volcano_icl
+ * DOUBAO_TTS_ENDPOINT default https://openspeech.bytedance.com/api/v1/tts
  */
 
 import fs from 'node:fs';
@@ -64,14 +64,14 @@ function parseArgs(argv) {
 
 function usage() {
   console.error(`
-tts-doubao.mjs · 豆包语音 TTS
+tts-doubao.mjs · Doubao Voice TTS
 
-  --text <str>          要合成的文本
-  --text-file <path>    从文件读取文本（与 --text 二选一）
-  --out <path>          输出 mp3 路径（必填）
-  --speed <float>       语速倍率，默认 1.0（0.5-2.0）
-  --voice <voice_id>    覆盖 .env 里的音色 id
-  --encoding <ext>      mp3 / wav / pcm，默认 mp3
+  --text <str> Text to synthesize
+  --text-file <path> Read text from file (alternative to --text)
+  --out <path> Output mp3 path (required)
+  --speed <float> Speech speed multiplier, default 1.0 (0.5-2.0)
+  --voice <voice_id> overrides the voice id in .env
+  --encoding <ext> mp3/wav/pcm, default mp3
 `.trim());
   process.exit(1);
 }
@@ -96,8 +96,8 @@ async function tts({ text, voice, speed, encoding }) {
   const endpoint = process.env.DOUBAO_TTS_ENDPOINT || 'https://openspeech.bytedance.com/api/v1/tts';
   const voiceId = voice || process.env.DOUBAO_TTS_VOICE_ID;
 
-  if (!apiKey) throw new Error('缺 DOUBAO_TTS_API_KEY（检查 .env）');
-  if (!voiceId) throw new Error('缺 DOUBAO_TTS_VOICE_ID（检查 .env 或用 --voice 传）');
+  if (!apiKey) throw new Error('Missing DOUBAO_TTS_API_KEY (check .env)');
+  if (!voiceId) throw new Error('Missing DOUBAO_TTS_VOICE_ID (check .env or pass --voice)');
 
   const body = {
     app: { cluster },
@@ -129,13 +129,13 @@ async function tts({ text, voice, speed, encoding }) {
   }
 
   const json = await res.json();
-  // 豆包标准返回：{ code, message, data: "<base64 audio>", ... }
-  // code === 3000 表示成功
+  // Doubao standard return: { code, message, data: "<base64 audio>", ... }
+  // code === 3000 indicates success
   if (json.code !== undefined && json.code !== 3000) {
-    throw new Error(`API 返回错误 code=${json.code} msg=${json.message || JSON.stringify(json)}`);
+    throw new Error(`API returns error code=${json.code} msg=${json.message || JSON.strinGIFy(json)}`);
   }
   if (!json.data) {
-    throw new Error(`API 响应无 data 字段：${JSON.stringify(json).slice(0, 500)}`);
+    throw new Error(`API response has no data field: ${JSON.strinGIFy(json).slice(0, 500)}`);
   }
   return Buffer.from(json.data, 'base64');
 }
@@ -149,11 +149,11 @@ async function main() {
     text = fs.readFileSync(args.textFile, 'utf8').trim();
   }
   if (!text) {
-    console.error('错：缺 --text 或 --text-file');
+    console.error('Error: Missing --text or --text-file');
     usage();
   }
   if (!args.out) {
-    console.error('错：缺 --out');
+    console.error('Error: Missing --out');
     usage();
   }
 
@@ -179,6 +179,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error(`TTS 失败：${err.message}`);
+  console.error(`TTS failed: ${err.message}`);
   process.exit(1);
 });

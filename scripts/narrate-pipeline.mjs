@@ -1,36 +1,36 @@
 #!/usr/bin/env node
 /**
- * narrate-pipeline.mjs · L2 长解说总指挥
+ * narrate-pipeline.mjs · L2 long voiceover commander
  *
- * 输入：markdown 解说稿（## scene-id 分段，[[cue:id]] 标关键句）
- * 输出：voiceover.mp3（拼接好的整段人声）+ timeline.json（每段 start/end + cues 绝对时间）
+ * Input: markdown voiceover draft (## scene-id segment, [[cue:id]] marks key sentences)
+ * Output: voiceover.mp3 (the entire spliced ​​vocal segment) + timeline.json (the absolute time of each segment start/end + cues)
  *
- * 用法：
+ * Usage:
  *   node scripts/narrate-pipeline.mjs --script demo.md --out-dir _narration_demo
  *
- * 解说稿格式：
+ * voiceover manuscript format:
  *   ---
- *   title: 什么是 LLM
- *   voice: S_JSdgdWk22   # 可选，不填走 .env
- *   speed: 1.0           # 可选
- *   gap: 0.3             # 段间静音秒数，默认 0.3
+ * title: What is LLM
+ * voice: S_JSdgdWk22 # Optional, leave it blank.env
+ * speed: 1.0 # optional
+ * gap: 0.3 # Number of seconds of silence between segments, default 0.3
  *   ---
  *
  *   ## intro
- *   大家好，我是花叔。今天我们 5 分钟讲清楚 LLM 是什么。
+ * Hello everyone, my name is Huashu. Today we will explain what LLM is in 5 minutes.
  *
  *   ## what-is
- *   LLM 全称 Large Language Model，[[cue:bigmodel]]它是一个有几千亿参数的神经网络。
- *   本质是一个文字接龙的预测器。
+ * LLM stands for Large Language Model, [[cue:bigmodel]] It is a neural network with hundreds of billions of parameters.
+ *Essence is a predictor of text solitaire.
  *
- * 输出文件结构（out-dir 下）：
+ * Output file structure (under out-dir):
  *   audio/
  *     intro.mp3
  *     what-is.mp3
- *   voiceover.mp3       拼接全部 scene 的整段人声
- *   timeline.json       schema 见 references/voiceover-pipeline.md
+ * voiceover.mp3 splices the entire vocal section of all scenes
+ * timeline.json schema see references/voiceover-pipeline.md
  *
- * 依赖：tts-doubao.mjs、ffmpeg、ffprobe
+ * Dependencies: tts-doubao.mjs, ffmpeg, ffprobe
  */
 
 import fs from 'node:fs';
@@ -55,12 +55,12 @@ function parseArgs(argv) {
 
 function usage() {
   console.error(`
-narrate-pipeline.mjs · L2 长解说总指挥
+narrate-pipeline.mjs · L2 long voiceover commander
 
-  --script <path>     解说稿 .md 文件（必填）
-  --out-dir <path>    输出目录（必填）
+  --script <path> voiceover draft .md file (required)
+  --out-dir <path> output directory (required)
 
-输出：<out-dir>/voiceover.mp3 + <out-dir>/timeline.json
+Output: <out-dir>/voiceover.mp3 + <out-dir>/timeline.json
 `.trim());
   process.exit(1);
 }
@@ -116,7 +116,7 @@ function splitByCues(text) {
   }
   const tail = text.slice(lastIdx).trim();
   chunks.push({ text: tail });
-  // 过滤空文本块（cue 紧贴段首/段尾时）
+  // Filter empty text blocks (when the cue is close to the beginning/end of the paragraph)
   return chunks.filter((c) => c.text.length > 0 || c.cueAfter);
 }
 
@@ -142,7 +142,7 @@ function callTTS(text, outPath, opts) {
 }
 
 function ffmpegConcat(inputs, output) {
-  // 用 concat demuxer 合并相同编码的 mp3
+  // Use concat demuxer to merge mp3s of the same encoding
   const listFile = output + '.list';
   fs.writeFileSync(
     listFile,
@@ -176,7 +176,7 @@ async function main() {
   const md = fs.readFileSync(scriptPath, 'utf8');
   const { meta, scenes } = parseScript(md);
   if (scenes.length === 0) {
-    console.error('错：解说稿没有 ## scene 段，至少一段。');
+    console.error('Error: The voiceover draft does not have a ## scene section, at least one section.');
     process.exit(1);
   }
 
@@ -186,7 +186,7 @@ async function main() {
 
   console.error(`[narrate] script=${path.basename(scriptPath)} scenes=${scenes.length} voice=${voice || '(env)'} speed=${speed} gap=${gap}s`);
 
-  // 段间静音文件（共用一个）
+  // Inter-segment mute file (share one)
   const gapFile = path.join(tmpDir, 'gap.mp3');
   if (gap > 0) makeSilence(gap, gapFile);
 
@@ -209,13 +209,13 @@ async function main() {
     const chunks = splitByCues(scene.raw);
     const chunkFiles = [];
     const cueRecords = [];
-    const chunkRecords = []; // 每个 chunk 的实测 start/end 段内时间，用于字幕显示
+    const chunkRecords = []; // The measured start/end time of each chunk is used for subtitle display
     let sceneInternalCursor = 0;
 
     for (let j = 0; j < chunks.length; j++) {
       const chunk = chunks[j];
       if (!chunk.text) {
-        // 空文本块（cue 紧贴），跳过 TTS 但仍记录 cue 位置
+        // Empty text block (cue clinging), skip TTS but still record cue position
         if (chunk.cueAfter) {
           cueRecords.push({
             id: chunk.cueAfter,
@@ -235,7 +235,7 @@ async function main() {
         end: sceneInternalCursor,
         duration: result.duration,
       });
-      console.error(`  chunk ${j}: ${result.duration.toFixed(2)}s · ${chunk.text.length} 字 · ${chunk.text.slice(0, 30)}${chunk.text.length > 30 ? '…' : ''}`);
+      console.error(` chunk ${j}: ${result.duration.toFixed(2)}s · ${chunk.text.length} words · ${chunk.text.slice(0, 30)}${chunk.text.length > 30 ? '…' : ''}`);
       if (chunk.cueAfter) {
         cueRecords.push({
           id: chunk.cueAfter,
@@ -244,7 +244,7 @@ async function main() {
       }
     }
 
-    // 合并段内子段
+    // Merge sub-segments within a segment
     const sceneAudio = path.join(audioDir, `${scene.id}.mp3`);
     if (chunkFiles.length === 1) {
       fs.copyFileSync(chunkFiles[0], sceneAudio);
@@ -253,7 +253,7 @@ async function main() {
     }
     const sceneDuration = getDuration(sceneAudio);
 
-    // 拼接到总轨：先加 gap（除了第一段），再加 scene
+    // Splicing to the main track: first add gap (except the first segment), then add scene
     if (i > 0 && gap > 0) {
       sceneAudioFiles.push(gapFile);
       cursor += gap;
@@ -267,7 +267,7 @@ async function main() {
       duration: sceneDuration,
       audio: path.relative(outDir, sceneAudio),
       text: scene.raw.replace(/\[\[cue:[\w-]+\]\]/g, ''),
-      // chunks: 用于字幕逐句显示。start/end 是段内相对时间，absoluteStart/absoluteEnd 是整轨绝对时间
+      //chunks: used to display subtitles sentence by sentence. start/end is the relative time within the segment, absoluteStart/absoluteEnd is the absolute time of the entire track
       chunks: chunkRecords.map((c) => ({
         text: c.text,
         start: c.start,
@@ -285,7 +285,7 @@ async function main() {
     cursor += sceneDuration;
   }
 
-  // 合并整轨
+  // Merge entire tracks
   const voiceoverPath = path.join(outDir, 'voiceover.mp3');
   ffmpegConcat(sceneAudioFiles, voiceoverPath);
   timeline.totalDuration = getDuration(voiceoverPath);
@@ -296,20 +296,20 @@ async function main() {
     JSON.stringify(timeline, null, 2),
   );
 
-  // 清理 tmp
+  // clean up tmp
   fs.rmSync(tmpDir, { recursive: true, force: true });
 
-  console.error(`\n[narrate] 完成。`);
+  console.error(`\n[narrate] Done.`);
   console.error(`  voiceover: ${voiceoverPath}`);
   console.error(`  timeline:  ${path.join(outDir, 'timeline.json')}`);
-  console.error(`  总时长:    ${timeline.totalDuration.toFixed(2)}s (${(timeline.totalDuration / 60).toFixed(2)} min)`);
-  console.error(`  段数:      ${timeline.scenes.length}`);
+  console.error(`Total duration: ${timeline.totalDuration.toFixed(2)}s (${(timeline.totalDuration / 60).toFixed(2)} min)`);
+  console.error(` Number of segments: ${timeline.scenes.length}`);
   const totalCues = timeline.scenes.reduce((sum, s) => sum + s.cues.length, 0);
-  console.error(`  cue 数:    ${totalCues}`);
+  console.error(`number of cues: ${totalCues}`);
 }
 
 main().catch((err) => {
-  console.error(`narrate-pipeline 失败：${err.message}`);
+  console.error(`narrate-pipeline failed: ${err.message}`);
   console.error(err.stack);
   process.exit(1);
 });
